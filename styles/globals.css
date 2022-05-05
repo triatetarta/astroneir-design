@@ -1,16 +1,39 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Supreme";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/Supreme-Regular.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "Supreme";
+    font-style: bold;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/fonts/Supreme-Bold.otf") format("opentype");
+  }
+
+  /* * {
+    cursor: none;
+  } */
+
+  body {
+    @apply font-supreme font-normal;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
+  .cursor-circle {
+    @apply fixed z-50 flex flex-row items-center justify-center top-0 left-0 w-2.5 h-2.5 rounded-full pointer-events-none align-middle;
+  }
 
-* {
-  box-sizing: border-box;
+  .cursor-content {
+    @apply text-center pointer-events-none m-auto;
+  }
 }

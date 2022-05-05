@@ -1,0 +1,75 @@
+export const spring = {
+  type: "spring",
+  stiffness: 500,
+  damping: 28,
+};
+
+export const variants = {
+  default: (mousePosition) => ({
+    rotate: 0,
+    opacity: 1,
+    height: 40,
+    width: 40,
+    x: mousePosition.xPosition,
+    y: mousePosition.yPosition,
+    fontSize: "18px",
+    backgroundColor: "#D94C77",
+    transition: {
+      type: "spring",
+      mass: 0.6,
+    },
+  }),
+  rooms: {
+    rotate: 360,
+    opacity: 1,
+    backgroundColor: "#425432",
+    color: "#ffffff",
+    height: 80,
+    width: 80,
+    x: "-50%",
+    y: "-50%",
+    fontSize: "18px",
+    transition: {
+      type: "spring",
+      mass: 0.6,
+    },
+  },
+  buttons: {
+    rotate: 360,
+    opacity: 1,
+    backgroundColor: "#425432",
+    color: "#ffffff",
+    height: 100,
+    width: 100,
+    fontSize: "16px",
+    transition: {
+      type: "spring",
+      stiffness: 200,
+      damping: 15,
+    },
+  },
+  schedule: {
+    rotate: 360,
+    opacity: 1,
+    backgroundColor: "#425432",
+    color: "#ffffff",
+    height: 90,
+    width: 90,
+    fontSize: "16px",
+  },
+  hello: {
+    rotate: 360,
+    opacity: 1,
+    backgroundColor: "#425432",
+    color: "#ffffff",
+    height: 90,
+    width: 90,
+    fontSize: "32px",
+    zIndex: "999",
+    transition: {
+      type: "spring",
+      stiffness: 200,
+      damping: 15,
+    },
+  },
+};
