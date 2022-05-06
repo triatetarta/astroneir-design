@@ -26,18 +26,33 @@ const Showcase = () => {
     setHovered(false);
   };
 
+  const getStyles = (stckr) => {
+    if (stckr === "Bio") {
+      return "self-start w-full";
+    }
+    if (stckr === "Works") {
+      return "-rotate-[25deg] self-end";
+    }
+    if (stckr === "Music") {
+      return "rotate-[10deg] self-start";
+    }
+    if (stckr === "Contact") {
+      return "self-end";
+    }
+  };
+
   return (
     <div className='flex flex-col relative h-[calc(100vh-136px)] overflow-y-hidden'>
       <div className='w-full h-full relative flex flex-row items-center justify-center'>
         {stickers?.map((sticker, index) => {
-          const { id, cssProps, image, priority } = sticker;
+          const { id, image, priority, title } = sticker;
 
           return (
             <div
               onMouseEnter={(e) => handleMouseEnter(e, index, sticker)}
               onMouseLeave={handleMouseLeave}
               key={id}
-              className={cssProps}
+              className={`${getStyles(title)} flex-1`}
             >
               <Image
                 priority={priority}
