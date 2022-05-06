@@ -11,8 +11,6 @@ const Cursor = (props) => {
     leaveDelay: 50,
   });
 
-  console.log(mouse);
-
   let mousePosition = {
     xPosition: 0,
     yPosition: 0,

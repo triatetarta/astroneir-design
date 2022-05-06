@@ -7,12 +7,10 @@ import { useRef } from "react";
 function MyApp({ Component, pageProps }) {
   const rootRef = useRef(null);
 
-  console.log(rootRef.current);
-
   return (
     <Provider store={store}>
       <Cursor rootRef={rootRef} />
-      <div className='root h-screen' ref={rootRef}>
+      <div className='root min-h-screen' ref={rootRef}>
         <Component {...pageProps} />
       </div>
     </Provider>
