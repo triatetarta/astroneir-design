@@ -2,15 +2,17 @@ import Image from "next/image";
 import { SpinningEmoji } from "../Aesthetics";
 import Title from "./Title";
 import { stickersData } from "../../constants/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Showcase = () => {
-  const [stickers, setStickers] = useState(stickersData);
+  const [stickers, setStickers] = useState(undefined);
   const [title, setTitle] = useState("Bio");
   const [hovered, setHovered] = useState(false);
   const [stickerIndex, setStickerIndex] = useState(0);
 
-  console.log(hovered);
+  useEffect(() => {
+    setStickers(stickersData);
+  }, []);
 
   const handleMouseEnter = (e, index, sticker) => {
     setStickerIndex(index);
@@ -28,20 +30,22 @@ const Showcase = () => {
     <div className='flex flex-col relative h-[calc(100vh-136px)] overflow-y-hidden'>
       <div className='w-full h-full relative flex flex-row items-center justify-center'>
         {stickers?.map((sticker, index) => {
+          const { id, cssProps, image, priority } = sticker;
+
           return (
             <div
               onMouseEnter={(e) => handleMouseEnter(e, index, sticker)}
               onMouseLeave={handleMouseLeave}
-              key={sticker.id}
-              className={sticker.cssProps}
+              key={id}
+              className={cssProps}
             >
               <Image
-                priority
-                src={sticker.image}
+                priority={priority}
+                src={image.src}
                 objectFit='contain'
                 layout='responsive'
-                width={100}
-                height={100}
+                width={image.width}
+                height={image.height}
               />
             </div>
           );

@@ -5,32 +5,32 @@ export const spring = {
 };
 
 export const variants = {
-  default: (mousePosition) => ({
+  default: {
     rotate: 0,
     opacity: 1,
     height: 40,
     width: 40,
-    x: mousePosition.xPosition,
-    y: mousePosition.yPosition,
+    x: "-50%",
+    y: "-50%",
     fontSize: "18px",
     backgroundColor: "#D94C77",
     transition: {
       type: "spring",
       mass: 0.6,
     },
-  }),
-  smile: (mousePosition) => ({
+  },
+  smile: {
     rotate: 360,
     opacity: 1,
     height: 42,
     width: 42,
-    x: mousePosition.xPosition,
-    y: mousePosition.yPosition,
+    x: "-50%",
+    y: "-50%",
     fontSize: "20px",
     backgroundColor: "#D94C77",
     transition: {
       type: "spring",
       mass: 0.6,
     },
-  }),
+  },
 };

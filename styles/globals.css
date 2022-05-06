@@ -19,9 +19,9 @@
     src: url("/fonts/Supreme-Bold.otf") format("opentype");
   }
 
-  /* * {
+  * {
     cursor: none;
-  } */
+  }
 
   body {
     @apply font-supreme font-normal bg-gradient-to-br from-astro-blue via-astro-pink to-astro-red;

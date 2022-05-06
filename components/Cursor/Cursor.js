@@ -1,36 +1,34 @@
 import { motion } from "framer-motion";
 import { variants, spring } from "./cursorAnimations";
 import { useSelector } from "react-redux";
-import useMouse from "@react-hook/mouse-position";
+import { useEffect, useRef } from "react";
 
 const Cursor = (props) => {
   const { cursorContent, cursorVariant } = useSelector((state) => state.cursor);
 
-  const mouse = useMouse(props.rootRef, {
-    enterDelay: 50,
-    leaveDelay: 50,
-  });
+  const cursor = useRef(null);
 
-  let mousePosition = {
-    xPosition: 0,
-    yPosition: 0,
+  const onMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    cursor.current.style.left = `${clientX}px`;
+    cursor.current.style.top = `${clientY}px`;
   };
 
-  if (mouse.x !== null) {
-    mousePosition.xPosition = mouse.clientX;
-  }
+  useEffect(() => {
+    document.addEventListener("mousemove", onMouseMove);
 
-  if (mouse.y !== null) {
-    mousePosition.yPosition = mouse.clientY;
-  }
+    return () => {
+      document.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
 
   return (
     <motion.div
       className='cursor-circle'
       variants={variants}
-      custom={mousePosition}
       animate={cursorVariant}
       transition={spring}
+      ref={cursor}
       style={{ originX: 0.5, originY: 0.5 }}
     >
       <motion.span className='cursor-content'>{cursorContent}</motion.span>
