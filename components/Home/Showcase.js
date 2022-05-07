@@ -5,14 +5,39 @@ import { stickersData } from "../../constants/data";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../Cursor/reducer";
+import { useMotionValue, useSpring, useTransform, motion } from "framer-motion";
 
 const Showcase = () => {
   const [stickers, setStickers] = useState(undefined);
   const [title, setTitle] = useState("Bio");
   const [hovered, setHovered] = useState(false);
-  const [stickerIndex, setStickerIndex] = useState(0);
+  const [stickerIndex, setStickerIndex] = useState(null);
 
   const dispatch = useDispatch();
+
+  const x = useMotionValue(250);
+  const y = useMotionValue(150);
+
+  const hoverState = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(y, [0, 300], [-15, 15]), {
+    bounce: 1,
+    stiffness: 800,
+    damping: 80,
+  });
+  const rotateY = useSpring(useTransform(x, [0, 500], [15, -15]), {
+    bounce: 1,
+    stiffness: 800,
+    damping: 80,
+  });
+
+  const handleMouse = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    hoverState.set(1);
+    x.set(e.clientX - rect.left);
+    y.set(e.clientY - rect.top);
+  };
 
   useEffect(() => {
     setStickers(stickersData);
@@ -27,9 +52,13 @@ const Showcase = () => {
 
   const handleMouseLeave = () => {
     dispatch(setCursor({ cursorContent: "🙁", cursorVariant: "default" }));
-    setStickerIndex(0);
+    setStickerIndex(null);
     setTitle("Bio");
     setHovered(false);
+
+    hoverState.set(0);
+    x.set(250);
+    y.set(150);
   };
 
   const getStyles = (stckr) => {
@@ -54,11 +83,16 @@ const Showcase = () => {
           const { id, image, priority, title } = sticker;
 
           return (
-            <div
+            <motion.div
               onMouseEnter={(e) => handleMouseEnter(e, index, sticker)}
               onMouseLeave={handleMouseLeave}
+              onMouseMove={handleMouse}
               key={id}
               className={`${getStyles(title)} flex-1`}
+              style={{
+                rotateX: stickerIndex === index && rotateX,
+                rotateY: stickerIndex === index && rotateY,
+              }}
             >
               <Image
                 priority={priority}
@@ -68,7 +102,7 @@ const Showcase = () => {
                 width={image.width}
                 height={image.height}
               />
-            </div>
+            </motion.div>
           );
         })}
       </div>
