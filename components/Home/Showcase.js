@@ -3,6 +3,8 @@ import { SpinningEmoji } from "../Aesthetics";
 import Title from "./Title";
 import { stickersData } from "../../constants/data";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCursor } from "../Cursor/reducer";
 
 const Showcase = () => {
   const [stickers, setStickers] = useState(undefined);
@@ -10,17 +12,21 @@ const Showcase = () => {
   const [hovered, setHovered] = useState(false);
   const [stickerIndex, setStickerIndex] = useState(0);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     setStickers(stickersData);
   }, []);
 
   const handleMouseEnter = (e, index, sticker) => {
+    dispatch(setCursor({ cursorContent: "🙂", cursorVariant: "smile" }));
     setStickerIndex(index);
     setTitle(sticker.title);
     setHovered(true);
   };
 
   const handleMouseLeave = () => {
+    dispatch(setCursor({ cursorContent: "🙁", cursorVariant: "default" }));
     setStickerIndex(0);
     setTitle("Bio");
     setHovered(false);
