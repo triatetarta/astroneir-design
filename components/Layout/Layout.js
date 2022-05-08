@@ -1,9 +1,14 @@
 import { Header } from "./Header";
 import Granim from "granim";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const Layout = ({ children }) => {
+  const { track } = useSelector((state) => state.sound);
+
   useEffect(() => {
+    if (track === undefined) return;
+
     new Granim({
       element: "#logo-canvas",
       direction: "diagonal",
@@ -12,28 +17,28 @@ const Layout = ({ children }) => {
         "default-state": {
           gradients: [
             [
-              { color: "#411aff", pos: 0.2 },
-              { color: "#e936b0", pos: 0.8 },
-              { color: "#ef2f5e", pos: 1 },
+              { color: track.colors.first, pos: 0 },
+              { color: track.colors.middle, pos: 0.2 },
+              { color: track.colors.last, pos: 0.75 },
             ],
             [
-              { color: "#411aff", pos: 0 },
-              { color: "#e936b0", pos: 0.2 },
-              { color: "#ef2f5e", pos: 0.75 },
+              { color: track.colors.first, pos: 0 },
+              { color: track.colors.middle, pos: 0.2 },
+              { color: track.colors.last, pos: 0.75 },
             ],
           ],
           transitionSpeed: 10000,
         },
       },
     });
-  }, []);
+  }, [track]);
 
   return (
     <>
       <canvas id='logo-canvas'></canvas>
       <div className='noise-bg'></div>
       <Header />
-      <div className='container mx-auto relative'>{children}</div>
+      <div className='gl-container mx-auto relative'>{children}</div>
     </>
   );
 };

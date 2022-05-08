@@ -8,7 +8,7 @@ export const Header = () => {
   const dispatch = useDispatch();
 
   return (
-    <nav className='container mx-auto flex items-start justify-between pt-10 text-white relative'>
+    <nav className='gl-container mx-auto flex items-start justify-between pt-10 text-white relative'>
       <div
         className='cursor-pointer'
         onClick={() => router.push("/")}
@@ -19,10 +19,10 @@ export const Header = () => {
           dispatch(setCursor({ cursorContent: "🙁", cursorVariant: "default" }))
         }
       >
-        <h1>Anestis Neiros</h1>
+        <h1 className='font-semibold'>Anestis Neiros</h1>
       </div>
       <div>
-        <ul>
+        <ul className='font-semibold'>
           <li>Bio</li>
           <li>Works</li>
           <li>Music</li>

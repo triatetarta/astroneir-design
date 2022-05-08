@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { SpinningEmoji } from "../Aesthetics";
+import SpinningEmoji from "./SpinningEmoji";
 import Title from "./Title";
 import { stickersData } from "../../constants/data";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../Cursor/reducer";
 import { useMotionValue, useSpring, useTransform, motion } from "framer-motion";
@@ -13,12 +13,12 @@ const Showcase = () => {
   const [hovered, setHovered] = useState(false);
   const [stickerIndex, setStickerIndex] = useState(null);
 
+  const eyeRef = useRef(null);
+
   const dispatch = useDispatch();
 
   const x = useMotionValue(250);
   const y = useMotionValue(150);
-
-  const hoverState = useMotionValue(0);
 
   const rotateX = useSpring(useTransform(y, [0, 300], [-15, 15]), {
     bounce: 1,
@@ -34,9 +34,23 @@ const Showcase = () => {
   const handleMouse = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
 
-    hoverState.set(1);
     x.set(e.clientX - rect.left);
     y.set(e.clientY - rect.top);
+  };
+
+  const handleMouseEye = (e) => {
+    const ref = eyeRef.current.getBoundingClientRect();
+
+    let eyeX = ref.left + eyeRef.current.clientWidth / 2;
+    let eyeY = ref.top + eyeRef.current.clientHeight / 2;
+
+    let x = e.clientX;
+    let y = e.clientY;
+
+    let radian = Math.atan2(x - eyeX, y - eyeY);
+    let rotationDegrees = radian * (180 / Math.PI) * -1 + 180;
+
+    eyeRef.current.style.transform = "rotate(" + rotationDegrees + "deg)";
   };
 
   useEffect(() => {
@@ -56,28 +70,30 @@ const Showcase = () => {
     setTitle("Bio");
     setHovered(false);
 
-    hoverState.set(0);
     x.set(250);
     y.set(150);
   };
 
   const getStyles = (stckr) => {
     if (stckr === "Bio") {
-      return "self-start w-full";
+      return "self-center w-[300px] h-[400px]";
     }
     if (stckr === "Works") {
-      return "-rotate-[25deg] self-end";
+      return "self-end w-[300px] h-[400px]";
     }
     if (stckr === "Music") {
-      return "rotate-[10deg] self-start";
+      return "self-start w-[300px] h-[400px]";
     }
     if (stckr === "Contact") {
-      return "self-end";
+      return "self-end w-[300px] h-[400px]";
     }
   };
 
   return (
-    <div className='flex flex-col relative h-[calc(100vh-136px)] overflow-y-hidden'>
+    <div
+      onMouseMove={handleMouseEye}
+      className='flex flex-col relative h-[calc(100vh-8.5rem)] overflow-y-hidden'
+    >
       <div className='w-full h-full relative flex flex-row items-center justify-center'>
         {stickers?.map((sticker, index) => {
           const { id, image, priority, title } = sticker;
@@ -88,7 +104,7 @@ const Showcase = () => {
               onMouseLeave={handleMouseLeave}
               onMouseMove={handleMouse}
               key={id}
-              className={`${getStyles(title)} flex-1`}
+              className={`${getStyles(title)} flex-1 relative`}
               style={{
                 rotateX: stickerIndex === index && rotateX,
                 rotateY: stickerIndex === index && rotateY,
@@ -98,17 +114,26 @@ const Showcase = () => {
                 priority={priority}
                 src={image.src}
                 objectFit='contain'
-                layout='responsive'
-                width={image.width}
-                height={image.height}
+                layout='fill'
+                quality={100}
+                // width={image.width}
+                // height={image.height}
               />
             </motion.div>
           );
         })}
       </div>
-      <div className='flex items-center w-full'>
-        <SpinningEmoji />
+      <div className='flex items-start justify-between w-full'>
+        <SpinningEmoji eyeRef={eyeRef} />
         <Title title={title} hovered={hovered} />
+        <div></div>
+        <div className='w-[300px] h-full flex items-center'>
+          <p className='text-white'>
+            Anestis Neiros is a graphic designer, illustrator. He is also a Dj,
+            known as Kinetta. Commitions for Packaging, Branding, Posters, Movie
+            Posters, Illustrations, Websites
+          </p>
+        </div>
       </div>
     </div>
   );
