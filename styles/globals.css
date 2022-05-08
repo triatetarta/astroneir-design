@@ -41,10 +41,6 @@
     @apply fixed z-50 flex flex-row items-center justify-center top-0 left-0 w-2.5 h-2.5 rounded-full pointer-events-none align-middle;
   }
 
-  .cursor-content {
-    @apply text-center pointer-events-none m-auto;
-  }
-
   .bloc-logo {
     @apply relative w-full h-screen;
   }

@@ -23,10 +23,62 @@ export const Header = () => {
       </div>
       <div>
         <ul className='font-semibold'>
-          <li>Bio</li>
-          <li>Works</li>
-          <li>Music</li>
-          <li>Contact</li>
+          <li
+            onMouseEnter={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+              )
+            }
+            onMouseLeave={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              )
+            }
+          >
+            Bio
+          </li>
+          <li
+            onMouseEnter={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+              )
+            }
+            onMouseLeave={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              )
+            }
+          >
+            Works
+          </li>
+          <li
+            onMouseEnter={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+              )
+            }
+            onMouseLeave={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              )
+            }
+          >
+            Music
+          </li>
+          <li
+            onMouseEnter={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+              )
+            }
+            onMouseLeave={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              )
+            }
+          >
+            Contact
+          </li>
         </ul>
       </div>
       <div></div>

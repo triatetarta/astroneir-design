@@ -3,7 +3,7 @@ import { variants, spring } from "./cursorAnimations";
 import { useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 
-const Cursor = (props) => {
+const Cursor = () => {
   const { cursorContent, cursorVariant } = useSelector((state) => state.cursor);
 
   const cursor = useRef(null);
@@ -31,7 +31,7 @@ const Cursor = (props) => {
       ref={cursor}
       style={{ originX: 0.5, originY: 0.5 }}
     >
-      <motion.span className='cursor-content'>{cursorContent}</motion.span>
+      {cursorContent}
     </motion.div>
   );
 };

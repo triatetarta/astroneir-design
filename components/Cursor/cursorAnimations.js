@@ -12,8 +12,7 @@ export const variants = {
     width: 40,
     x: "-50%",
     y: "-50%",
-    fontSize: "18px",
-    backgroundColor: "#D94C77",
+    fontSize: "20px",
     transition: {
       type: "spring",
       mass: 0.6,
@@ -27,7 +26,6 @@ export const variants = {
     x: "-50%",
     y: "-50%",
     fontSize: "20px",
-    backgroundColor: "#D94C77",
     transition: {
       type: "spring",
       mass: 0.6,

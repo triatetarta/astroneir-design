@@ -6,6 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../Cursor/reducer";
 import { useMotionValue, useSpring, useTransform, motion } from "framer-motion";
+import Instagram from "../../public/assets/instagram.svg";
+import Soundcloud from "../../public/assets/soundcloud.svg";
+import Facebook from "../../public/assets/facebook.svg";
 
 const Showcase = () => {
   const [stickers, setStickers] = useState(undefined);
@@ -20,12 +23,12 @@ const Showcase = () => {
   const x = useMotionValue(250);
   const y = useMotionValue(150);
 
-  const rotateX = useSpring(useTransform(y, [0, 300], [-15, 15]), {
+  const rotateX = useSpring(useTransform(y, [0, 300], [-20, 20]), {
     bounce: 1,
     stiffness: 800,
     damping: 80,
   });
-  const rotateY = useSpring(useTransform(x, [0, 500], [15, -15]), {
+  const rotateY = useSpring(useTransform(x, [0, 500], [20, -20]), {
     bounce: 1,
     stiffness: 800,
     damping: 80,
@@ -48,9 +51,16 @@ const Showcase = () => {
     let y = e.clientY;
 
     let radian = Math.atan2(x - eyeX, y - eyeY);
+
     let rotationDegrees = radian * (180 / Math.PI) * -1 + 180;
 
     eyeRef.current.style.transform = "rotate(" + rotationDegrees + "deg)";
+
+    // const xAxis = x > 160 ? x / 30 : (x / 20) * -1;
+
+    // console.log(xAxis);
+
+    // eyeRef.current.style.transform = "translateX(" + xAxis + "px)";
   };
 
   useEffect(() => {
@@ -116,8 +126,6 @@ const Showcase = () => {
                 objectFit='contain'
                 layout='fill'
                 quality={100}
-                // width={image.width}
-                // height={image.height}
               />
             </motion.div>
           );
@@ -127,12 +135,68 @@ const Showcase = () => {
         <SpinningEmoji eyeRef={eyeRef} />
         <Title title={title} hovered={hovered} />
         <div></div>
-        <div className='w-[300px] h-full flex items-center'>
-          <p className='text-white'>
-            Anestis Neiros is a graphic designer, illustrator. He is also a Dj,
-            known as Kinetta. Commitions for Packaging, Branding, Posters, Movie
-            Posters, Illustrations, Websites
-          </p>
+        <div className='h-full flex items-center space-x-4'>
+          <a
+            target='_blank'
+            href='https://www.facebook.com/anestits'
+            rel='noopener noreferrer'
+            className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
+            onMouseEnter={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+              )
+            }
+            onMouseLeave={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              )
+            }
+          >
+            <Facebook className='h-full w-full' />
+          </a>
+          <a
+            target='_blank'
+            href='https://www.instagram.com/astroneir_design'
+            rel='noopener noreferrer'
+            className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
+            onMouseEnter={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+              )
+            }
+            onMouseLeave={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              )
+            }
+          >
+            <Instagram className='h-full w-full' />
+          </a>
+          <a
+            target='_blank'
+            href='https://soundcloud.com/kinetta83'
+            rel='noopener noreferrer'
+            className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
+            onMouseEnter={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+              )
+            }
+            onMouseLeave={() =>
+              dispatch(
+                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              )
+            }
+          >
+            <Soundcloud className='h-full w-full' />
+          </a>
+          <div className='w-[300px]'>
+            <p className='text-white'>
+              Anestis Neiros is a graphic designer, illustrator. He is also a
+              Dj, known as Kinetta. Commitions for Packaging, Branding, Posters,
+              Movie Posters, Illustrations, Websites
+            </p>
+          </div>
         </div>
       </div>
     </div>
