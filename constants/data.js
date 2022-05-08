@@ -33,9 +33,9 @@ export const stickersData = [
 export const musicPlaylist = [
   {
     id: 1,
-    src: "https://t4.bcbits.com/stream/3daae2f582504c197af927e3652f6092/mp3-128/75037182?p=0&ts=1652090486&t=e1e52dc5093cc2055108f3f62b70962d5b696576&token=1652090486_3d6747e43bfdc4a091d1e6ab359628bde4f0a320",
-    artist: "OorsprongPark",
-    title: "Elevator Kitsch",
+    src: "/audio/hissarlik-daily-life.mp3",
+    artist: "Hissarlik",
+    title: "Daily Life",
     colors: {
       first: "#411aff",
       middle: "#e936b0",
@@ -44,9 +44,9 @@ export const musicPlaylist = [
   },
   {
     id: 2,
-    src: "https://t4.bcbits.com/stream/a5479d98e095272637e742bd417de730/mp3-128/1987304360?p=0&ts=1652090606&t=cb4e9beca7b3588a4a172621da203d2bd40b82d3&token=1652090606_1bd578e220091a5a2a43e5c49c05f8895e4e649f",
-    artist: "Antoni Maiovvi",
-    title: "Valencia Forever",
+    src: "/audio/bufi-africa-latina-maya-danon-remix.mp3",
+    artist: "Bufi",
+    title: "Africa Latina (Maya Danon Remix)",
     colors: {
       first: "#0C24FE",
       middle: "#00FF01",
