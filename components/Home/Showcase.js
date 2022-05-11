@@ -9,6 +9,7 @@ import { useMotionValue, useSpring, useTransform, motion } from "framer-motion";
 import Instagram from "../../public/assets/instagram.svg";
 import Soundcloud from "../../public/assets/soundcloud.svg";
 import Facebook from "../../public/assets/facebook.svg";
+import { emojiHappy, emojiSad } from "../../constants/data";
 
 const Showcase = () => {
   const [stickers, setStickers] = useState(undefined);
@@ -68,14 +69,14 @@ const Showcase = () => {
   }, []);
 
   const handleMouseEnter = (e, index, sticker) => {
-    dispatch(setCursor({ cursorContent: "🙂", cursorVariant: "smile" }));
+    dispatch(setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" }));
     setStickerIndex(index);
     setTitle(sticker.title);
     setHovered(true);
   };
 
   const handleMouseLeave = () => {
-    dispatch(setCursor({ cursorContent: "🙁", cursorVariant: "default" }));
+    dispatch(setCursor({ cursorContent: emojiSad, cursorVariant: "default" }));
     setStickerIndex(null);
     setTitle("Bio");
     setHovered(false);
@@ -143,12 +144,12 @@ const Showcase = () => {
             className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
             onMouseEnter={() =>
               dispatch(
-                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+                setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
               )
             }
             onMouseLeave={() =>
               dispatch(
-                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+                setCursor({ cursorContent: emojiSad, cursorVariant: "default" })
               )
             }
           >
@@ -161,12 +162,12 @@ const Showcase = () => {
             className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
             onMouseEnter={() =>
               dispatch(
-                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+                setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
               )
             }
             onMouseLeave={() =>
               dispatch(
-                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+                setCursor({ cursorContent: emojiSad, cursorVariant: "default" })
               )
             }
           >
@@ -179,12 +180,12 @@ const Showcase = () => {
             className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
             onMouseEnter={() =>
               dispatch(
-                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+                setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
               )
             }
             onMouseLeave={() =>
               dispatch(
-                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+                setCursor({ cursorContent: emojiSad, cursorVariant: "default" })
               )
             }
           >

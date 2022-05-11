@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../Cursor/reducer";
 import { MusicController } from "../Music";
+import { emojiHappy, emojiSad } from "../../constants/data";
 
 export const Header = () => {
   const router = useRouter();
@@ -13,10 +14,20 @@ export const Header = () => {
         className='cursor-pointer'
         onClick={() => router.push("/")}
         onMouseEnter={() =>
-          dispatch(setCursor({ cursorContent: "🙂", cursorVariant: "smile" }))
+          dispatch(
+            setCursor({
+              cursorContent: emojiHappy,
+              cursorVariant: "smile",
+            })
+          )
         }
         onMouseLeave={() =>
-          dispatch(setCursor({ cursorContent: "🙁", cursorVariant: "default" }))
+          dispatch(
+            setCursor({
+              cursorContent: emojiSad,
+              cursorVariant: "default",
+            })
+          )
         }
       >
         <h1 className='font-semibold'>Anestis Neiros</h1>
@@ -24,56 +35,84 @@ export const Header = () => {
       <div>
         <ul className='font-semibold'>
           <li
+            onClick={() => router.push("/bio")}
             onMouseEnter={() =>
               dispatch(
-                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+                setCursor({
+                  cursorContent: emojiHappy,
+                  cursorVariant: "smile",
+                })
               )
             }
             onMouseLeave={() =>
               dispatch(
-                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+                setCursor({
+                  cursorContent: emojiSad,
+                  cursorVariant: "default",
+                })
               )
             }
           >
             Bio
           </li>
           <li
+            onClick={() => router.push("/works")}
             onMouseEnter={() =>
               dispatch(
-                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+                setCursor({
+                  cursorContent: emojiHappy,
+                  cursorVariant: "smile",
+                })
               )
             }
             onMouseLeave={() =>
               dispatch(
-                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+                setCursor({
+                  cursorContent: emojiSad,
+                  cursorVariant: "default",
+                })
               )
             }
           >
             Works
           </li>
           <li
+            onClick={() => router.push("/music")}
             onMouseEnter={() =>
               dispatch(
-                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+                setCursor({
+                  cursorContent: emojiHappy,
+                  cursorVariant: "smile",
+                })
               )
             }
             onMouseLeave={() =>
               dispatch(
-                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+                setCursor({
+                  cursorContent: emojiSad,
+                  cursorVariant: "default",
+                })
               )
             }
           >
             Music
           </li>
           <li
+            onClick={() => router.push("/contact")}
             onMouseEnter={() =>
               dispatch(
-                setCursor({ cursorContent: "🙂", cursorVariant: "smile" })
+                setCursor({
+                  cursorContent: emojiHappy,
+                  cursorVariant: "smile",
+                })
               )
             }
             onMouseLeave={() =>
               dispatch(
-                setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+                setCursor({
+                  cursorContent: emojiSad,
+                  cursorVariant: "default",
+                })
               )
             }
           >

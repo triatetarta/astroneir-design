@@ -7,6 +7,7 @@ import PlayingRight from "../../public/assets/playingright.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsPlaying, setNewContext, setTrack } from "./reducer";
 import { setCursor } from "../Cursor/reducer";
+import { emojiHappy, emojiSad } from "../../constants/data";
 
 const MusicController = () => {
   const { music, track, isPlaying } = useSelector((state) => state.sound);
@@ -34,11 +35,13 @@ const MusicController = () => {
       <div className='flex items-center space-x-4'>
         <div
           onMouseEnter={() =>
-            dispatch(setCursor({ cursorContent: "🙂", cursorVariant: "smile" }))
+            dispatch(
+              setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
+            )
           }
           onMouseLeave={() =>
             dispatch(
-              setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              setCursor({ cursorContent: emojiSad, cursorVariant: "default" })
             )
           }
           onClick={handleClick}
@@ -48,11 +51,13 @@ const MusicController = () => {
         </div>
         <div
           onMouseEnter={() =>
-            dispatch(setCursor({ cursorContent: "🙂", cursorVariant: "smile" }))
+            dispatch(
+              setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
+            )
           }
           onMouseLeave={() =>
             dispatch(
-              setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              setCursor({ cursorContent: emojiSad, cursorVariant: "default" })
             )
           }
           onClick={pauseHandler}
@@ -62,11 +67,13 @@ const MusicController = () => {
         </div>
         <div
           onMouseEnter={() =>
-            dispatch(setCursor({ cursorContent: "🙂", cursorVariant: "smile" }))
+            dispatch(
+              setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
+            )
           }
           onMouseLeave={() =>
             dispatch(
-              setCursor({ cursorContent: "🙁", cursorVariant: "default" })
+              setCursor({ cursorContent: emojiSad, cursorVariant: "default" })
             )
           }
           onClick={playNextHandler}

@@ -54,3 +54,19 @@ export const musicPlaylist = [
     },
   },
 ];
+
+export const emojiSad = "./assets/emojisad.svg";
+export const emojiHappy = "./assets/emojihappy.svg";
+
+export const worksData = [
+  { id: 1, title: "Branding" },
+  { id: 2, title: "Logos" },
+  { id: 3, title: "Music Posters" },
+  { id: 4, title: "Movie Posters" },
+  { id: 5, title: "Illustrations" },
+  { id: 6, title: "Websites" },
+  { id: 7, title: "Google Ads" },
+  { id: 8, title: "Packaging" },
+  { id: 9, title: "Video Editing" },
+  { id: 10, title: "Movie Trailers" },
+];

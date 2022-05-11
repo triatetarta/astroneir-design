@@ -8,8 +8,8 @@ export const variants = {
   default: {
     rotate: 0,
     opacity: 1,
-    height: 40,
-    width: 40,
+    height: 20,
+    width: 20,
     x: "-50%",
     y: "-50%",
     fontSize: "20px",
@@ -21,8 +21,8 @@ export const variants = {
   smile: {
     rotate: 360,
     opacity: 1,
-    height: 42,
-    width: 42,
+    height: 20,
+    width: 20,
     x: "-50%",
     y: "-50%",
     fontSize: "20px",

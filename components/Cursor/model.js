@@ -1,4 +1,6 @@
+import { emojiSad } from "../../constants/data";
+
 export const initialState = {
-  cursorContent: "🙁",
+  cursorContent: emojiSad,
   cursorVariant: "default",
 };
