@@ -40,6 +40,7 @@ const Project = ({ setOpenProject, selectedWork }) => {
                   href={image.url}
                   className='flex items-center space-x-1 pointer-events-auto'
                   target='_blank'
+                  rel='noreferrer'
                 >
                   <div className='w-3 h-3'>{image.urlIcon}</div>
                   <p>{image.project}</p>

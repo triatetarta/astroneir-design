@@ -27,6 +27,7 @@ const Bio = () => {
             objectFit='contain'
             layout='fill'
             quality={100}
+            alt='unicorn'
           />
         </div>
       </section>
