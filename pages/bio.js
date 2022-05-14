@@ -5,38 +5,20 @@ import Image from "next/image";
 const Bio = () => {
   return (
     <Layout>
-      <section className='w-full flex items-center justify-between h-[calc(100vh-8.5rem)]'>
-        <div className='w-1/3'>
+      <section className='w-full flex items-center justify-between h-[calc(100vh-8.5rem)] overflow-hidden'>
+        <div className='w-2/3'>
           <p className='text-white'>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus
-            dolorum minima, deleniti sapiente ratione nisi. Sapiente unde
-            deleniti consequatur ea quo. Modi, aliquid! Quaerat necessitatibus
-            recusandae fugit dolorum minus fugiat facilis alias voluptatum qui.
-            Similique eligendi in, quisquam quas delectus rerum, reprehenderit
-            recusandae perferendis eum exercitationem ratione explicabo ad
-            labore aliquid adipisci, nostrum pariatur excepturi eaque quidem
-            debitis asperiores facere. Voluptate dolorem repellendus quisquam
-            cum nostrum sed obcaecati reiciendis natus, ab quae dolorum quis
-            assumenda ea. Commodi nihil sed rerum quidem, ullam minus error
-            consectetur architecto in harum facere veritatis recusandae? Sunt
-            exercitationem neque, numquam incidunt nihil fugiat consequatur
-            sint!
-          </p>
-          <br />
-          <p className='text-white'>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus
-            dolorum minima, deleniti sapiente ratione nisi. Sapiente unde
-            deleniti consequatur ea quo. Modi, aliquid! Quaerat necessitatibus
-            recusandae fugit dolorum minus fugiat facilis alias voluptatum qui.
-            Similique eligendi in, quisquam quas delectus rerum, reprehenderit
-            recusandae perferendis eum exercitationem ratione explicabo ad
-            labore aliquid adipisci, nostrum pariatur excepturi eaque quidem
-            debitis asperiores facere. Voluptate dolorem repellendus quisquam
-            cum nostrum sed obcaecati reiciendis natus, ab quae dolorum quis
-            assumenda ea. Commodi nihil sed rerum quidem, ullam minus error
-            consectetur architecto in harum facere veritatis recusandae? Sunt
-            exercitationem neque, numquam incidunt nihil fugiat consequatur
-            sint!
+            Creative Graphic Designer, fluent in Illustrator and Photoshop, with
+            talent for developing unique custom artworks. Highly artistic,
+            always on task with innovative approach to ideas and concept
+            development. Offering 7 years of expertise managing individual
+            projects and brand designing. Consistently creates skilled, creative
+            and brand-specific designs. Demonstrated success in managing an art
+            directing in various projects from inception to completion within
+            defined scope, quality, and timeline. Progressing experience in
+            Video Editing, GIF animation and After Effects Animation.
+            Detail-oriented, organized, enthusiastic team player and used to
+            work at fast pace to meet tight deadlines.
           </p>
         </div>
         <div className='flex-1 relative w-1/3 h-full'>
