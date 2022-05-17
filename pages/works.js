@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../components/Cursor/reducer";
@@ -9,9 +9,7 @@ import { emojiHappy, emojiSad } from "../constants/data";
 
 const Works = () => {
   const [works, setWorks] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(1);
-  const [selectedWork, setSelectedWork] = useState({});
-  const [openProject, setOpenProject] = useState(false);
+  const [selectedWorks, setSelectedWorks] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -20,9 +18,8 @@ const Works = () => {
   }, []);
 
   const onClickHandler = (work) => {
-    setSelectedIndex(work.id);
-    setSelectedWork(work);
-    setOpenProject(true);
+    if (selectedWorks.includes(work)) return;
+    setSelectedWorks([...selectedWorks, work]);
   };
 
   return (
@@ -60,12 +57,17 @@ const Works = () => {
         </aside>
         <main className='relative flex-grow overflow-hidden'>
           <AnimatePresence>
-            {openProject && (
-              <Project
-                setOpenProject={setOpenProject}
-                selectedWork={selectedWork}
-              />
-            )}
+            {selectedWorks.map((work, index) => {
+              return (
+                <Project
+                  key={work.id}
+                  setSelectedWorks={setSelectedWorks}
+                  selectedWorks={selectedWorks}
+                  index={index}
+                  work={work}
+                />
+              );
+            })}
           </AnimatePresence>
         </main>
       </section>

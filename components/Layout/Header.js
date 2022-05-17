@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { setCursor } from "../Cursor/reducer";
 import { MusicController } from "../Music";
 import { emojiHappy, emojiSad } from "../../constants/data";
+import { openBio } from "../Bio/reducer";
 
 export const Header = () => {
   const router = useRouter();
@@ -35,7 +36,8 @@ export const Header = () => {
       <div>
         <ul className='font-semibold'>
           <li
-            onClick={() => router.push("/bio")}
+            // onClick={() => router.push("/bio")}
+            onClick={() => dispatch(openBio())}
             onMouseEnter={() =>
               dispatch(
                 setCursor({

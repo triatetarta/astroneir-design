@@ -2,9 +2,12 @@ import { Header } from "./Header";
 import Granim from "granim";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Bio } from "../Bio";
+import { AnimatePresence } from "framer-motion";
 
 const Layout = ({ children }) => {
   const { track } = useSelector((state) => state.sound);
+  const { isBioOpen } = useSelector((state) => state.bio);
 
   useEffect(() => {
     if (track === undefined) return;
@@ -38,7 +41,11 @@ const Layout = ({ children }) => {
       <canvas id='logo-canvas'></canvas>
       <div className='noise-bg'></div>
       <Header />
-      <div className='gl-container mx-auto relative'>{children}</div>
+      <div className='gl-container mx-auto relative'>
+        <AnimatePresence>{isBioOpen && <Bio />}</AnimatePresence>
+
+        {children}
+      </div>
     </>
   );
 };

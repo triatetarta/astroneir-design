@@ -1,21 +1,23 @@
 import Image from "next/image";
 import SpinningEmoji from "./SpinningEmoji";
 import Title from "./Title";
-import { stickersData } from "../../constants/data";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../Cursor/reducer";
 import { useMotionValue, useSpring, useTransform, motion } from "framer-motion";
-import Instagram from "../../public/assets/instagram.svg";
-import Soundcloud from "../../public/assets/soundcloud.svg";
-import Facebook from "../../public/assets/facebook.svg";
-import { emojiHappy, emojiSad } from "../../constants/data";
+import {
+  emojiHappy,
+  emojiSad,
+  socialMediaData,
+  stickersData,
+} from "../../constants/data";
 
 const Showcase = () => {
   const [stickers, setStickers] = useState(undefined);
   const [title, setTitle] = useState("Bio");
   const [hovered, setHovered] = useState(false);
   const [stickerIndex, setStickerIndex] = useState(null);
+  const [socialMedia, setSocialMedia] = useState([]);
 
   const eyeRef = useRef(null);
 
@@ -66,6 +68,7 @@ const Showcase = () => {
 
   useEffect(() => {
     setStickers(stickersData);
+    setSocialMedia(socialMediaData);
   }, []);
 
   const handleMouseEnter = (e, index, sticker) => {
@@ -137,60 +140,41 @@ const Showcase = () => {
         <Title title={title} hovered={hovered} />
         <div></div>
         <div className='h-full flex items-center space-x-4'>
-          <a
-            target='_blank'
-            href='https://www.facebook.com/anestits'
-            rel='noopener noreferrer'
-            className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
-            onMouseEnter={() =>
-              dispatch(
-                setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
-              )
-            }
-            onMouseLeave={() =>
-              dispatch(
-                setCursor({ cursorContent: emojiSad, cursorVariant: "default" })
-              )
-            }
-          >
-            <Facebook className='h-full w-full' />
-          </a>
-          <a
-            target='_blank'
-            href='https://www.instagram.com/astroneir_design'
-            rel='noopener noreferrer'
-            className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
-            onMouseEnter={() =>
-              dispatch(
-                setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
-              )
-            }
-            onMouseLeave={() =>
-              dispatch(
-                setCursor({ cursorContent: emojiSad, cursorVariant: "default" })
-              )
-            }
-          >
-            <Instagram className='h-full w-full' />
-          </a>
-          <a
-            target='_blank'
-            href='https://soundcloud.com/kinetta83'
-            rel='noopener noreferrer'
-            className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
-            onMouseEnter={() =>
-              dispatch(
-                setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
-              )
-            }
-            onMouseLeave={() =>
-              dispatch(
-                setCursor({ cursorContent: emojiSad, cursorVariant: "default" })
-              )
-            }
-          >
-            <Soundcloud className='h-full w-full' />
-          </a>
+          {socialMedia?.map((media) => {
+            return (
+              <a
+                key={media.id}
+                target='_blank'
+                href={media.link}
+                rel='noopener noreferrer'
+                className='h-6 w-6'
+                onMouseEnter={() =>
+                  dispatch(
+                    setCursor({
+                      cursorContent: emojiHappy,
+                      cursorVariant: "smile",
+                    })
+                  )
+                }
+                onMouseLeave={() =>
+                  dispatch(
+                    setCursor({
+                      cursorContent: emojiSad,
+                      cursorVariant: "default",
+                    })
+                  )
+                }
+              >
+                <Image
+                  src={media.icon}
+                  alt={media.title}
+                  width={24}
+                  height={24}
+                />
+              </a>
+            );
+          })}
+
           <div className='w-[300px]'>
             <p className='text-white'>
               Anestis Neiros is a graphic designer, illustrator. He is also a
