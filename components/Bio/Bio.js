@@ -19,18 +19,35 @@ const Bio = () => {
   return (
     <motion.article
       drag
-      initial={{ opacity: 0, y: "-100%", x: "-50%" }}
-      animate={{ opacity: 1, y: "-70%", x: "-50%" }}
+      initial={{ opacity: 0, y: "-150%", x: "-50%" }}
+      animate={{ opacity: 1, y: "-90%", x: "-50%" }}
       exit={{ opacity: 0, scale: 0 }}
-      className='fixed top-1/2 left-1/2 w-[800px] bg-white p-5 rounded-md z-40 shadow-md'
+      className='fixed top-1/2 left-1/2 w-[800px] bg-white px-6 pt-5 pb-10 rounded-md z-40 shadow-md'
     >
-      <div className='p-4 relative flex items-center justify-end'>
-        <span
+      <div className='p-3 relative flex items-center justify-end'>
+        <motion.span
+          whileHover={{ rotate: -180, transition: { type: "spring" } }}
           onClick={() => dispatch(closeBio())}
+          onMouseEnter={() =>
+            dispatch(
+              setCursor({
+                cursorContent: emojiHappy,
+                cursorVariant: "smile",
+              })
+            )
+          }
+          onMouseLeave={() =>
+            dispatch(
+              setCursor({
+                cursorContent: emojiSad,
+                cursorVariant: "default",
+              })
+            )
+          }
           className='w-8 h-8 rounded-md flex items-center justify-center'
         >
           <CloseIcon />
-        </span>
+        </motion.span>
       </div>
       <div className='flex'>
         <p className='w-2/3'>

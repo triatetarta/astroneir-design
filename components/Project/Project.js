@@ -2,10 +2,15 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import CloseIcon from "../../public/assets/x.svg";
+import { emojiHappy, emojiSad } from "../../constants/data";
+import { setCursor } from "../Cursor/reducer";
+import { useDispatch } from "react-redux";
 
 const Project = ({ setSelectedWorks, selectedWorks, work, index }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [zIndex, setZIndex] = useState(30);
+
+  const dispatch = useDispatch();
 
   const { id, images } = work;
 
@@ -32,12 +37,29 @@ const Project = ({ setSelectedWorks, selectedWorks, work, index }) => {
       style={{ zIndex: zIndex }}
     >
       <div className='p-4 relative flex items-center justify-end'>
-        <span
+        <motion.span
+          whileHover={{ rotate: -180, transition: { type: "spring" } }}
           onClick={() => onCloseHandler(id)}
+          onMouseEnter={() =>
+            dispatch(
+              setCursor({
+                cursorContent: emojiHappy,
+                cursorVariant: "smile",
+              })
+            )
+          }
+          onMouseLeave={() =>
+            dispatch(
+              setCursor({
+                cursorContent: emojiSad,
+                cursorVariant: "default",
+              })
+            )
+          }
           className='w-8 h-8 rounded-md flex items-center justify-center'
         >
           <CloseIcon />
-        </span>
+        </motion.span>
       </div>
 
       <div className='px-6 flex gap-4 flex-wrap items-center justify-center w-full h-full mt-4 pb-10 select-none pointer-events-none'>
@@ -46,6 +68,8 @@ const Project = ({ setSelectedWorks, selectedWorks, work, index }) => {
             <div key={image.id}>
               <div className='w-[150px] h-[150px] overflow-hidden relative'>
                 <Image
+                  placeholder='blur'
+                  blurDataURL={image.src}
                   layout='fill'
                   objectFit='contain'
                   src={image.src}
