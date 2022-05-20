@@ -4,6 +4,7 @@ import { setCursor } from "../Cursor/reducer";
 import { MusicController } from "../Music";
 import { emojiHappy, emojiSad } from "../../constants/data";
 import { openBio } from "../Bio/reducer";
+import { openContact } from "../Contact/reducer";
 
 export const Header = () => {
   const router = useRouter();
@@ -36,7 +37,6 @@ export const Header = () => {
       <div>
         <ul className='font-semibold'>
           <li
-            // onClick={() => router.push("/bio")}
             onClick={() => dispatch(openBio())}
             onMouseEnter={() =>
               dispatch(
@@ -100,7 +100,7 @@ export const Header = () => {
             Music
           </li>
           <li
-            onClick={() => router.push("/contact")}
+            onClick={() => dispatch(openContact())}
             onMouseEnter={() =>
               dispatch(
                 setCursor({

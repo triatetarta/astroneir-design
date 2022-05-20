@@ -3,6 +3,12 @@ import bottle from "../public/assets/bottle.png";
 import rainbow from "../public/assets/rainbow.png";
 import flower from "../public/assets/flower.png";
 
+export const transition = {
+  type: "spring",
+  stiffness: 280,
+  damping: 30,
+};
+
 export const stickersData = [
   {
     id: 1,
@@ -57,6 +63,7 @@ export const musicPlaylist = [
 
 export const emojiSad = "./assets/emojisad.svg";
 export const emojiHappy = "./assets/emojihappy.svg";
+export const imagePlaceholder = "/assets/placeholder.png";
 
 export const socialMediaData = [
   {

@@ -2,6 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../components/Cursor/reducer";
+import { Gallery } from "../components/Gallery";
 import { Layout } from "../components/Layout";
 import Project from "../components/Project/Project";
 import { worksData } from "../constants/data";
@@ -10,6 +11,9 @@ import { emojiHappy, emojiSad } from "../constants/data";
 const Works = () => {
   const [works, setWorks] = useState([]);
   const [selectedWorks, setSelectedWorks] = useState([]);
+  const [openGallery, setOpenGallery] = useState(false);
+  const [images, setImages] = useState([]);
+  const [selImageIndex, setSelImageIndex] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -65,9 +69,23 @@ const Works = () => {
                   selectedWorks={selectedWorks}
                   index={index}
                   work={work}
+                  setOpenGallery={setOpenGallery}
+                  setImages={setImages}
+                  setSelImageIndex={setSelImageIndex}
                 />
               );
             })}
+          </AnimatePresence>
+
+          <AnimatePresence>
+            {openGallery && (
+              <Gallery
+                images={images}
+                selImageIndex={selImageIndex}
+                setSelImageIndex={setSelImageIndex}
+                setOpenGallery={setOpenGallery}
+              />
+            )}
           </AnimatePresence>
         </main>
       </section>
