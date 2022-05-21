@@ -5,7 +5,6 @@ import CloseIcon from "../../public/assets/x.svg";
 import { emojiHappy, emojiSad, imagePlaceholder } from "../../constants/data";
 import { setCursor } from "../Cursor/reducer";
 import { useDispatch } from "react-redux";
-import { transition } from "../../constants/data";
 
 const Project = ({
   setSelectedWorks,
@@ -63,7 +62,7 @@ const Project = ({
         x: !isOpen && 0 + index * 30,
       }}
       exit={{ opacity: 0, scale: 0, rotate: -360, y: 150, x: 0 }}
-      className={`draggable-card bg-white rounded-md absolute left-1/3 top-20 max-w-[380px] shadow-2xl `}
+      className={`draggable-card bg-white rounded-md absolute left-1/3 top-20 max-w-[380px] shadow-2xl`}
       style={{ zIndex: 30 }}
     >
       <div className='p-4 relative flex items-center justify-end pointer-events-none'>
