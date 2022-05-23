@@ -24,6 +24,7 @@ module.exports = {
         "astro-red": "#ef2f5e",
         "astro-blue": "#411aff ",
         "astro-pink": "#e936b0",
+        "astro-yellow": "#FFC019",
       },
       fontFamily: {
         supreme: ["Supreme"],

@@ -29,7 +29,7 @@ const Works = () => {
     <Layout>
       <section className='w-full flex justify-between h-[calc(100vh-8.5rem)]  pt-20'>
         <aside className='shrink-0'>
-          <ul className='uppercase text-white text-xl flex flex-col space-y-1 sticky top-20'>
+          <ul className='uppercase text-white text-xl flex flex-col space-y-1'>
             {works?.map((work) => {
               return (
                 <li

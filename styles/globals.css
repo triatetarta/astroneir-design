@@ -23,6 +23,18 @@
     cursor: none;
   }
 
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #d9d9d9;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ffc019;
+    border-radius: 10px;
+  }
+
   body {
     @apply font-supreme font-normal bg-gradient-to-br from-astro-blue via-astro-pink to-astro-red;
   }

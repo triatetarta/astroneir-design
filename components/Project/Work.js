@@ -26,7 +26,7 @@ const Work = ({
 
   return (
     <article>
-      <div className='px-6 flex gap-4 flex-wrap items-center justify-center w-full h-full mt-4 pb-10 select-none pointer-events-none'>
+      <div className='px-6 flex gap-4 flex-wrap items-center justify-center w-full h-full mt-4 pb-10 select-none pointer-events-none max-w-[800px] mx-auto'>
         {images?.map((image, index) => {
           return (
             <div

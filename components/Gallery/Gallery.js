@@ -36,6 +36,22 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
         className='gallery fixed top-0 right-0 bottom-0 left-0 bg-black/90 z-40 select-none'
       >
         <div
+          onMouseEnter={() =>
+            dispatch(
+              setCursor({
+                cursorContent: emojiHappy,
+                cursorVariant: "smile",
+              })
+            )
+          }
+          onMouseLeave={() =>
+            dispatch(
+              setCursor({
+                cursorContent: emojiSad,
+                cursorVariant: "default",
+              })
+            )
+          }
           onClick={() => setOpenGallery(false)}
           className='w-12 h-12 ml-auto pt-6 pr-6'
         >
@@ -76,9 +92,14 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
                   opacity,
                 }}
                 transition={transition}
-                className='w-[500px] h-[500px] overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                className='w-[800px] h-[800px] overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
               >
-                <Image src={image.src} layout='fill' objectFit='contain' />
+                <Image
+                  src={image.src}
+                  layout='fill'
+                  objectFit='contain'
+                  quality={100}
+                />
               </motion.div>
             );
           })}
