@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import SpinningEmoji from "./SpinningEmoji";
 import Title from "./Title";
 import { useEffect, useRef, useState } from "react";
@@ -11,6 +12,8 @@ import {
   socialMediaData,
   stickersData,
 } from "../../constants/data";
+import { openBio } from "../Bio/reducer";
+import { openContact } from "../Contact/reducer";
 
 const Showcase = () => {
   const [stickers, setStickers] = useState(undefined);
@@ -22,6 +25,7 @@ const Showcase = () => {
   const eyeRef = useRef(null);
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const x = useMotionValue(250);
   const y = useMotionValue(150);
@@ -103,6 +107,21 @@ const Showcase = () => {
     }
   };
 
+  const onClickHandler = (title) => {
+    if (title === "Bio") {
+      dispatch(openBio());
+    }
+    if (title === "Works") {
+      router.push("/works");
+    }
+    if (title === "Music") {
+      router.push("/music");
+    }
+    if (title === "Contact") {
+      dispatch(openContact());
+    }
+  };
+
   return (
     <div
       onMouseMove={handleMouseEye}
@@ -125,6 +144,7 @@ const Showcase = () => {
               }}
             >
               <Image
+                onClick={() => onClickHandler(title)}
                 priority={priority}
                 src={image.src}
                 objectFit='contain'
@@ -175,11 +195,11 @@ const Showcase = () => {
             );
           })}
 
-          <div className='w-[300px]'>
+          <div>
             <p className='text-white'>
-              Anestis Neiros is a graphic designer, illustrator. He is also a
-              Dj, known as Kinetta. Commitions for Packaging, Branding, Posters,
-              Movie Posters, Illustrations, Websites
+              The world is indeed comic,
+              <br />
+              but the joke is on mankind.
             </p>
           </div>
         </div>

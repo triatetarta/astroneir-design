@@ -14,7 +14,7 @@ const Work = ({
   const [hover, setHover] = useState(false);
   const [hoverIndex, setHoverIndex] = useState(null);
 
-  const { id, images } = selectedWork;
+  const { images } = selectedWork;
 
   const dispatch = useDispatch();
 
@@ -25,11 +25,15 @@ const Work = ({
   };
 
   return (
-    <article>
-      <div className='px-6 flex gap-4 flex-wrap items-center justify-center w-full h-full mt-4 pb-10 select-none pointer-events-none max-w-[800px] mx-auto'>
+    <motion.article layout>
+      <motion.div
+        layout
+        className='px-6 flex gap-4 flex-wrap items-center justify-center w-full h-full mt-4 pb-10 select-none pointer-events-none max-w-[800px] mx-auto'
+      >
         {images?.map((image, index) => {
           return (
-            <div
+            <motion.div
+              layout
               onMouseEnter={() =>
                 dispatch(
                   setCursor({
@@ -76,19 +80,15 @@ const Work = ({
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       className='w-full h-full bg-black/60 absolute top-0 left-0 flex items-center justify-center'
-                    >
-                      <span className='text-white uppercase text-xl px-2 py-1 bg-pink-400 rounded-md'>
-                        {image.project}
-                      </span>
-                    </motion.div>
+                    ></motion.div>
                   )}
                 </AnimatePresence>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
-    </article>
+      </motion.div>
+    </motion.article>
   );
 };
 

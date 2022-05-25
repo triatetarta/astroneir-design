@@ -14,15 +14,55 @@ const Works = () => {
   const [openGallery, setOpenGallery] = useState(false);
   const [images, setImages] = useState([]);
   const [selImageIndex, setSelImageIndex] = useState(null);
+  const [filteredMenu, setFilteredMenu] = useState([]);
+  const [work, setWork] = useState({});
 
   const dispatch = useDispatch();
+
+  const { images: workImages } = selectedWork;
 
   useEffect(() => {
     setWorks(worksData);
   }, []);
 
+  useEffect(() => {
+    if (!selectedWork) return;
+
+    if (filteredMenu.length > 1) return;
+
+    setFilteredMenu([
+      "All",
+      ...new Set(workImages?.map((image) => image.project)),
+    ]);
+  }, [selectedWork]);
+
   const onClickHandler = (work) => {
+    if (selectedWork === work) return;
+
+    setFilteredMenu([]);
     setSelectedWork(work);
+    setWork(work);
+  };
+
+  const filterWork = (item) => {
+    if (item === "All") {
+      setSelectedWork(work);
+      return;
+    }
+
+    if (selectedWork.images.length !== work.images.length) {
+      setSelectedWork(work);
+
+      const filtered = work.images.filter((image) => image.project === item);
+
+      setSelectedWork({ ...selectedWork, images: filtered });
+
+      return;
+    }
+
+    const filtered = workImages.filter((image) => image.project === item);
+
+    setSelectedWork({ ...selectedWork, images: filtered });
   };
 
   return (
@@ -60,6 +100,40 @@ const Works = () => {
           </ul>
         </aside>
         <main className='relative flex-grow'>
+          <div className='px-6 flex gap-3 flex-wrap items-center justify-center w-full mt-4 pb-10 select-none max-w-[800px] mx-auto'>
+            {filteredMenu.length < 2 ? null : (
+              <>
+                {filteredMenu?.map((item, index) => {
+                  return (
+                    <button
+                      onMouseEnter={() =>
+                        dispatch(
+                          setCursor({
+                            cursorContent: emojiHappy,
+                            cursorVariant: "smile",
+                          })
+                        )
+                      }
+                      onMouseLeave={() =>
+                        dispatch(
+                          setCursor({
+                            cursorContent: emojiSad,
+                            cursorVariant: "default",
+                          })
+                        )
+                      }
+                      onClick={() => filterWork(item)}
+                      className='bg-white font-bold px-2 py-1 rounded-md cursor-none capitalize'
+                      key={index}
+                    >
+                      {item}
+                    </button>
+                  );
+                })}
+              </>
+            )}
+          </div>
+
           <AnimatePresence>
             <Work
               key={selectedWork.id}

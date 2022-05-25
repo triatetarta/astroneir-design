@@ -21,13 +21,15 @@ const Bio = () => {
       drag
       dragMomentum={false}
       initial={{ opacity: 0, y: "-150%", x: "-50%" }}
-      animate={{ opacity: 1, y: "-90%", x: "-50%" }}
+      animate={{ opacity: 1, y: "-50%", x: "-50%" }}
       exit={{ opacity: 0, scale: 0 }}
-      className='fixed top-1/2 left-1/2 w-[800px] bg-white px-6 pt-5 pb-10 rounded-md z-40 shadow-md'
+      className='fixed top-1/2 left-1/2 w-3/4 md:w-[800px] bg-white px-6 pt-5 pb-10 rounded-md z-40 transform -translate-x-1/2 -translate-y-1/2'
     >
-      <div className='p-3 relative flex items-center justify-end'>
+      <div
+        onClick={() => dispatch(closeBio())}
+        className='p-3 relative flex items-center justify-end'
+      >
         <span
-          onClick={() => dispatch(closeBio())}
           onMouseEnter={() =>
             dispatch(
               setCursor({
@@ -44,13 +46,13 @@ const Bio = () => {
               })
             )
           }
-          className='w-8 h-8 rounded-md flex items-center justify-center'
+          className='md:w-8 md:h-8 w-6 h-6 rounded-md flex items-center justify-center'
         >
           <CloseIcon />
         </span>
       </div>
-      <div className='flex'>
-        <p className='w-2/3'>
+      <div className='flex flex-col md:flex-row'>
+        <p className='w-full md:w-2/3'>
           Creative Graphic Designer, fluent in Illustrator and Photoshop, with
           talent for developing unique custom artworks. Highly artistic, always
           on task with innovative approach to ideas and concept development.
@@ -62,7 +64,7 @@ const Bio = () => {
           and After Effects Animation. Detail-oriented, organized, enthusiastic
           team player and used to work at fast pace to meet tight deadlines.
         </p>
-        <div className='relative w-1/3'>
+        <div className='relative w-full md:w-1/3 mt-6 md:mt-0 h-[120px] md:h-auto'>
           <Image
             src={unicorn}
             objectFit='contain'

@@ -51,10 +51,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <canvas id='logo-canvas'></canvas>
-      <div className='noise-bg'></div>
+      <div className='noise-bg overflow-hidden'></div>
       <Header />
       <div
-        className={`gl-container mx-auto relative ${
+        className={`gl-container mx-auto relative overflow-x-hidden ${
           isWorks ? "overflow-y-auto" : "overflow-y-hidden"
         }`}
       >
