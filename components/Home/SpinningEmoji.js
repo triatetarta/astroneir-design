@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const SpinningEmoji = ({ eyeRef }) => {
   return (
-    <div className='w-44 h-44 my-4 relative'>
+    <div className='w-32 h-32 md:w-44 md:h-44 my-4 relative'>
       <motion.div
         initial={{ rotate: 0 }}
         animate={{ rotate: 360 }}

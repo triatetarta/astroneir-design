@@ -60,7 +60,7 @@ const Intro = ({ setLoaded }) => {
         className='fixed -top-[400px] -left-[400px] -right-[400px] -bottom-[400px] bg-astro-blue z-50'
       />
       <div className='fixed top-0 left-0 right-0 bottom-0 bg-astro-pink flex items-center justify-center'>
-        <motion.div animate={emojiAnimation}>
+        <motion.div className='w-2/3 md:max-w-[300px]' animate={emojiAnimation}>
           <Emoji />
         </motion.div>
       </div>

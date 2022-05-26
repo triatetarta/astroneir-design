@@ -155,48 +155,49 @@ const Showcase = () => {
           );
         })}
       </div>
-      <div className='flex items-start justify-between w-full'>
+      <div className='flex items-center justify-between w-full'>
         <SpinningEmoji eyeRef={eyeRef} />
         <Title title={title} hovered={hovered} />
         <div></div>
-        <div className='h-full flex items-center space-x-4'>
-          {socialMedia?.map((media) => {
-            return (
-              <a
-                key={media.id}
-                target='_blank'
-                href={media.link}
-                rel='noopener noreferrer'
-                className='h-6 w-6'
-                onMouseEnter={() =>
-                  dispatch(
-                    setCursor({
-                      cursorContent: emojiHappy,
-                      cursorVariant: "smile",
-                    })
-                  )
-                }
-                onMouseLeave={() =>
-                  dispatch(
-                    setCursor({
-                      cursorContent: emojiSad,
-                      cursorVariant: "default",
-                    })
-                  )
-                }
-              >
-                <Image
-                  src={media.icon}
-                  alt={media.title}
-                  width={24}
-                  height={24}
-                />
-              </a>
-            );
-          })}
-
-          <div>
-            <p className='text-white'>
+        <div className='h-full flex flex-col-reverse lg:flex-row  lg:items-center lg:space-x-4 justify-center items-end'>
+          <div className='flex space-x-2'>
+            {socialMedia?.map((media) => {
+              return (
+                <a
+                  key={media.id}
+                  target='_blank'
+                  href={media.link}
+                  rel='noopener noreferrer'
+                  className='h-5 w-5 md:h-6 md:w-6'
+                  onMouseEnter={() =>
+                    dispatch(
+                      setCursor({
+                        cursorContent: emojiHappy,
+                        cursorVariant: "smile",
+                      })
+                    )
+                  }
+                  onMouseLeave={() =>
+                    dispatch(
+                      setCursor({
+                        cursorContent: emojiSad,
+                        cursorVariant: "default",
+                      })
+                    )
+                  }
+                >
+                  <Image
+                    src={media.icon}
+                    alt={media.title}
+                    width={24}
+                    height={24}
+                  />
+                </a>
+              );
+            })}
+          </div>
+          <div className='mb-2 lg:mb-0'>
+            <p className='text-white text-right text-sm md:text-base'>
               The world is indeed comic,
               <br />
               but the joke is on mankind.

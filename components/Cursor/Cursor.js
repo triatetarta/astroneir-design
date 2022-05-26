@@ -24,7 +24,7 @@ const Cursor = () => {
 
   return (
     <motion.div
-      className='cursor-circle'
+      className='cursor-circle hidden md:block'
       variants={variants}
       animate={cursorVariant}
       transition={spring}

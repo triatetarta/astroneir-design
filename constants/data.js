@@ -10,6 +10,14 @@ export const transition = {
   damping: 30,
 };
 
+export const videoData = [
+  {
+    id: uuidv4(),
+    title: "horror",
+    src: "/videos/horror.mp4",
+  },
+];
+
 export const stickersData = [
   {
     id: 1,

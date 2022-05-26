@@ -3,7 +3,7 @@ import ArrowRight from "../../public/assets/arrow.svg";
 
 const Title = ({ title, hovered }) => {
   return (
-    <div className='flex items-center overflow-hidden'>
+    <div className='items-center overflow-hidden hidden md:flex'>
       <AnimatePresence>
         {hovered && (
           <motion.h1
@@ -15,14 +15,14 @@ const Title = ({ title, hovered }) => {
               damping: 17,
               type: "spring",
             }}
-            className='text-[8rem] font-bold text-white'
+            className='lg:text-[8rem] text-[4rem] font-bold text-white'
           >
             {title}
           </motion.h1>
         )}
       </AnimatePresence>
 
-      <div className='w-20 h-20 ml-10 overflow-hidden'>
+      <div className='lg:w-20 lg:h-20 lg:ml-10 w-10 h-10 ml-2 overflow-hidden'>
         <AnimatePresence>
           {hovered && (
             <motion.div

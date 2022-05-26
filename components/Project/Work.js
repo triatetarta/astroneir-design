@@ -28,7 +28,7 @@ const Work = ({
     <motion.article layout>
       <motion.div
         layout
-        className='px-6 flex gap-4 flex-wrap items-center justify-center w-full h-full mt-4 pb-10 select-none pointer-events-none max-w-[800px] mx-auto'
+        className='px-2 md:px-6 flex gap-4 flex-wrap items-center justify-center w-full h-full mt-0 md:mt-4 pb-10 select-none pointer-events-none max-w-[800px] mx-auto'
       >
         {images?.map((image, index) => {
           return (

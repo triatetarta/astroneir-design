@@ -33,7 +33,7 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className='gallery fixed top-0 right-0 bottom-0 left-0 bg-black/90 z-40 select-none'
+        className='gallery fixed top-0 right-0 bottom-0 left-0 bg-black/90 z-30 select-none pointer-events-none'
       >
         <div
           onMouseEnter={() =>
@@ -53,11 +53,57 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
             )
           }
           onClick={() => setOpenGallery(false)}
-          className='w-12 h-12 ml-auto pt-6 pr-6'
+          className='w-14 h-14 ml-auto py-4 px-4 flex items-center justify-center pointer-events-auto z-40'
         >
-          <CloseIcon />
+          <CloseIcon className='w-full h-full' />
         </div>
-        <div className='relative h-full w-[500px] mx-auto '>
+        <div className='relative h-full w-full mx-auto '>
+          <div
+            onMouseEnter={() =>
+              dispatch(
+                setCursor({
+                  cursorContent: emojiHappy,
+                  cursorVariant: "smile",
+                })
+              )
+            }
+            onMouseLeave={() =>
+              dispatch(
+                setCursor({
+                  cursorContent: emojiSad,
+                  cursorVariant: "default",
+                })
+              )
+            }
+            className='w-8 h-8 absolute top-1/2 left-2 md:left-4 pointer-events-auto'
+            onClick={() => setIndex(index - 1)}
+          >
+            <ArrowLeft />
+          </div>
+
+          <div
+            onMouseEnter={() =>
+              dispatch(
+                setCursor({
+                  cursorContent: emojiHappy,
+                  cursorVariant: "smile",
+                })
+              )
+            }
+            onMouseLeave={() =>
+              dispatch(
+                setCursor({
+                  cursorContent: emojiSad,
+                  cursorVariant: "default",
+                })
+              )
+            }
+            className='w-8 h-8 absolute top-1/2 right-2 md:right-4 pointer-events-auto'
+            onClick={() => setIndex(index + 1)}
+          >
+            <ArrowRight />
+          </div>
+
           {images?.map((image, imageIndex) => {
             let positionX = "200%";
             let positionY = "-50%";
@@ -83,6 +129,16 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
 
             return (
               <motion.div
+                drag='x'
+                onDragEnd={(_, { offset }) => {
+                  const { x } = offset;
+
+                  if (x > 30) {
+                    setIndex(index - 1);
+                  } else if (x < -30) {
+                    setIndex(index + 1);
+                  }
+                }}
                 key={image.id}
                 initial={{ x: positionX, y: positionY, zIndex, opacity }}
                 animate={{
@@ -92,9 +148,10 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
                   opacity,
                 }}
                 transition={transition}
-                className='w-[800px] h-[800px] overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                className='w-3/4 h-3/4 overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 select-none pointer-events-auto z-40'
               >
                 <Image
+                  className='select-none pointer-events-none'
                   src={image.src}
                   layout='fill'
                   objectFit='contain'
@@ -105,55 +162,6 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
           })}
         </div>
       </motion.div>
-
-      <div className='fixed bottom-12 left-0 right-0 flex z-40 w-full text-white'>
-        <div className='mx-auto flex items-center justify-center space-x-10'>
-          <div
-            onMouseEnter={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiHappy,
-                  cursorVariant: "smile",
-                })
-              )
-            }
-            onMouseLeave={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiSad,
-                  cursorVariant: "default",
-                })
-              )
-            }
-            className='w-10 h-10'
-            onClick={() => setIndex(index - 1)}
-          >
-            <ArrowLeft />
-          </div>
-          <div
-            onMouseEnter={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiHappy,
-                  cursorVariant: "smile",
-                })
-              )
-            }
-            onMouseLeave={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiSad,
-                  cursorVariant: "default",
-                })
-              )
-            }
-            className='w-10 h-10'
-            onClick={() => setIndex(index + 1)}
-          >
-            <ArrowRight />
-          </div>
-        </div>
-      </div>
     </>
   );
 };

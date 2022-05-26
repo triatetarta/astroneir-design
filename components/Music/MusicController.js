@@ -1,7 +1,4 @@
 import { AnimatePresence, motion } from "framer-motion";
-import PlayIcon from "../../public/assets/play.svg";
-import PauseIcon from "../../public/assets/pause.svg";
-import NextIcon from "../../public/assets/next.svg";
 import PlayingLeft from "../../public/assets/playingleft.svg";
 import PlayingRight from "../../public/assets/playingright.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -45,9 +42,13 @@ const MusicController = () => {
             )
           }
           onClick={handleClick}
-          className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
+          className='h-5 w-5 md:h-6 md:w-6'
         >
-          <PlayIcon className='w-full h-full' />
+          <img
+            src='/assets/musicplayer/play.png'
+            alt='play icon'
+            className='w-full h-full'
+          />
         </div>
         <div
           onMouseEnter={() =>
@@ -61,9 +62,9 @@ const MusicController = () => {
             )
           }
           onClick={pauseHandler}
-          className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
+          className='h-5 w-5 md:h-6 md:w-6'
         >
-          <PauseIcon className='h-full w-full' />
+          <img src='/assets/musicplayer/pause.png' alt='pause icon' />
         </div>
         <div
           onMouseEnter={() =>
@@ -77,9 +78,9 @@ const MusicController = () => {
             )
           }
           onClick={playNextHandler}
-          className='h-6 w-6 bg-black flex items-center justify-center p-1.5 rounded-md'
+          className='h-5 w-5 md:h-6 md:w-6'
         >
-          <NextIcon className='h-full w-full' />
+          <img src='/assets/musicplayer/next.png' alt='next icon' />
         </div>
       </div>
 

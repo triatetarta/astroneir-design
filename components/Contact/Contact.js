@@ -59,7 +59,7 @@ const Contact = () => {
               })
             )
           }
-          className='md:w-8 md:h-8 w-6 h-6 rounded-md flex items-center justify-center'
+          className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center'
         >
           <CloseIcon />
         </span>

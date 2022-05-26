@@ -67,13 +67,13 @@ const Works = () => {
 
   return (
     <Layout>
-      <section className='w-full flex justify-between h-[calc(100vh-8.5rem)]  pt-20'>
-        <aside className='shrink-0'>
-          <ul className='uppercase text-white text-xl flex flex-col space-y-1'>
+      <section className='w-full flex md:flex-row flex-col justify-between h-[calc(100vh-8.5rem)] md:pt-20 pt-8'>
+        <aside className='md:shrink-0'>
+          <ul className='uppercase text-white  flex md:flex-col flex-row flex-wrap md:space-x-0 items-center md:items-start justify-around'>
             {works?.map((work) => {
               return (
                 <li
-                  className='break-normal'
+                  className='break-normal text-sm md:text-base mr-1 md:mr-0 mt-1 md:mt-0'
                   onClick={() => onClickHandler(work)}
                   onMouseEnter={() =>
                     dispatch(
@@ -100,7 +100,7 @@ const Works = () => {
           </ul>
         </aside>
         <main className='relative flex-grow'>
-          <div className='px-6 flex gap-3 flex-wrap items-center justify-center w-full mt-4 pb-10 select-none max-w-[800px] mx-auto'>
+          <div className='px-6 flex gap-3 flex-wrap items-center justify-center w-full mt-6 md:mt-4 pb-8 md:pb-10 select-none max-w-[800px] mx-auto'>
             {filteredMenu.length < 2 ? null : (
               <>
                 {filteredMenu?.map((item, index) => {
@@ -123,7 +123,7 @@ const Works = () => {
                         )
                       }
                       onClick={() => filterWork(item)}
-                      className='bg-white font-bold px-2 py-1 rounded-md cursor-none capitalize'
+                      className='bg-white text-xs md:text-sm font-bold px-2 py-1 rounded-md cursor-none capitalize'
                       key={index}
                     >
                       {item}
