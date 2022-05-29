@@ -6,6 +6,7 @@ import { Contact } from "../Contact";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { Gradient } from "../../Gradient";
+import SEO from "../SEO/SEO";
 
 const Layout = ({ children }) => {
   const [isWorks, setIsWorks] = useState(false);
@@ -30,6 +31,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <SEO />
       <canvas id='gradient-canvas' data-transition-in />
       <div className='noise-bg overflow-hidden'></div>
       <Header />

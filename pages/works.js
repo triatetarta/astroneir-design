@@ -70,19 +70,6 @@ const Works = () => {
 
   return (
     <>
-      <Head>
-        <title>Astroneir Design - Works</title>
-        <meta name='description' content='Works page' />
-        <meta
-          name='keywords'
-          content='Graphic Design, Colours, Illustration, Web Design,
-Video Editing, Anestis Neiros, Astroneir Design, 
-Branding, Music Posters, Movie Posters, Packaging, 
-Movie Trailers, T Shirts'
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-
       <Layout>
         <section className='w-full flex md:flex-row flex-col justify-between h-[calc(100vh-8.5rem)] md:pt-20 pt-8'>
           <aside className='md:shrink-0'>
