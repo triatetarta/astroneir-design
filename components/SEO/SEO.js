@@ -27,23 +27,17 @@ const SEO = () => {
         content='Creative Graphic Designer, fluent in Illustrator and Photoshop, with talent for developing unique custom artworks. Highly artistic, always on task with innovative approach to ideas and concept development.'
         key='ogdesc'
       />
-      <meta
-        property='twitter:card'
-        content='summary_large_image'
-        key='twcard'
-      />
-      <meta name='twitter:creator' content='Gioumourtzina' key='twhandle' />
-      <meta name='twitter:title' content='Astroneir Design' key='twtitle' />
+
+      <meta name='twitter:card' content='summary' />
+      <meta name='twitter:site' content='@Gioumourtzina' />
+      <meta name='twitter:title' content='Astroneir Design' />
       <meta
         name='twitter:description'
-        content='Creative Graphic Designer, fluent in Illustrator and Photoshop, with talent for developing unique custom artworks. Highly artistic, always on task with innovative approach to ideas and concept development.'
-        key='twdescription'
+        content='Creative Graphic Designer, fluent in Illustrator and Photoshop, with talent for developing unique custom artworks.'
       />
-      <meta
-        name='twitter:image'
-        content='https://i.imgur.com/dWXIOhh.png'
-        key='twimage'
-      />
+      <meta name='twitter:creator' content='@Gioumourtzina' />
+      <meta name='twitter:image' content='https://i.imgur.com/dWXIOhh.png' />
+
       <meta property='og:url' content='www.astroneir-design.com' key='ogurl' />
       <meta
         property='og:image'
