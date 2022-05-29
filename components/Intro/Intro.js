@@ -41,6 +41,9 @@ const Intro = ({ setLoaded }) => {
     await emojiAnimation.start({
       scale: 8,
       opacity: 0,
+      transition: {
+        duration: 0.75,
+      },
     });
     await setLoaded(true);
   };

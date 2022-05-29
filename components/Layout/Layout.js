@@ -63,7 +63,7 @@ const Layout = ({ children }) => {
       <Header />
       <div
         className={`gl-container mx-auto relative overflow-x-hidden ${
-          isWorks ? "overflow-y-scroll" : "overflow-y-hidden"
+          isWorks ? "overflow-y-auto" : "overflow-y-hidden"
         }`}
       >
         <AnimatePresence>{isBioOpen && <Bio />}</AnimatePresence>
