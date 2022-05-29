@@ -49,12 +49,18 @@ const Showcase = () => {
   };
 
   const handleMouseEye = (e) => {
-    let x = e.clientX;
-    let y = e.clientY;
+    const rect = eyeRef.current.getBoundingClientRect();
 
-    const xAxis = x > 120 ? x / 100 : (x / 15) * -1;
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
 
-    eyeRef.current.style.transform = "translateX(" + xAxis + "px)";
+    // const xAxis = x > width / 2 ? x / 100 : (x / 15) * -1;
+    // const xAxis = x > width / 2 ? x / 100 : (x / 100) * -1;
+    const xAxis = x / 100;
+    const yAxis = y / 100;
+
+    // eyeRef.current.style.transform = `translate(${xAxis}px)`;
+    eyeRef.current.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
   };
 
   useEffect(() => {

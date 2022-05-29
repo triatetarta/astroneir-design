@@ -214,36 +214,6 @@ export const worksData = [
         project: "yolo",
         src: "/assets/works/logos/yolo.png",
       },
-      {
-        id: uuidv4(),
-        project: "blanca negra",
-        src: "/assets/works/logos/blancanegra.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "blue koala",
-        src: "/assets/works/logos/bluekoala.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "asaminthos",
-        src: "/assets/works/logos/asaminthos.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "work venture",
-        src: "/assets/works/logos/workventure.jpg",
-      },
-      {
-        id: uuidv4(),
-        project: "twc",
-        src: "/assets/works/logos/twc.jpg",
-      },
-      {
-        id: uuidv4(),
-        project: "board games cafe",
-        src: "/assets/works/logos/boardgamecafe.jpg",
-      },
     ],
   },
   {
@@ -304,66 +274,6 @@ export const worksData = [
         id: uuidv4(),
         project: "lovell",
         src: "/assets/works/music-posters/lovell2.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken17-1.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken17-2.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken17-3.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken17-4.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken17-5.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken17-6.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken17-7.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken17-8.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken19-1.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken19-2.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken19-3.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "plissken festival",
-        src: "/assets/works/music-posters/plissken19-4.webp",
       },
       {
         id: uuidv4(),
@@ -739,11 +649,6 @@ export const worksData = [
         id: uuidv4(),
         project: "zita shoes",
         src: "/assets/works/packaging/shoes1.png",
-      },
-      {
-        id: uuidv4(),
-        project: "gioumourtzina",
-        src: "/assets/works/packaging/gioumou.webp",
       },
     ],
   },
