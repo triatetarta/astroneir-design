@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/gradient.css";
 import { Provider } from "react-redux";
 import { store } from "../configureStore";
 import { Cursor } from "../components/Cursor";
