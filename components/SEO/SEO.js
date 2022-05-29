@@ -8,9 +8,9 @@ const SEO = () => {
       <title>Astroneir Design</title>
       <meta name='description' content='Graphic Designer' />
 
-      <meta itemprop='name' content='Astroneir Design' />
-      <meta itemprop='description' content='Graphic Designer' />
-      <meta itemprop='image' content='https://i.imgur.com/dWXIOhh.png' />
+      <meta itemProp='name' content='Astroneir Design' />
+      <meta itemProp='description' content='Graphic Designer' />
+      <meta itemProp='image' content='https://i.imgur.com/dWXIOhh.png' />
 
       <meta property='og:url' content='https://www.astroneir-design.com' />
       <meta property='og:type' content='website' />
