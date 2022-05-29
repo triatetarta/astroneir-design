@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { Layout } from "../components/Layout";
 import { videoData } from "../constants/data";

@@ -1,5 +1,4 @@
 import { AnimatePresence } from "framer-motion";
-import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../components/Cursor/reducer";

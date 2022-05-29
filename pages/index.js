@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Showcase from "../components/Home/Showcase";
 import { Layout } from "../components/Layout";
 
