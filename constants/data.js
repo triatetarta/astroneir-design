@@ -10,14 +10,6 @@ export const transition = {
   damping: 30,
 };
 
-export const videoData = [
-  {
-    id: uuidv4(),
-    title: "horror",
-    src: "/videos/horror.mp4",
-  },
-];
-
 export const stickersData = [
   {
     id: 1,
@@ -588,7 +580,42 @@ export const worksData = [
       },
     ],
   },
-  { id: 7, title: "Google Ads", images: [] },
+  {
+    id: 7,
+    title: "Google Ads",
+    images: [
+      {
+        id: uuidv4(),
+        project: "cinobo cannes",
+        src: "/assets/works/googleads/cinobo1.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "cinobo cannes",
+        src: "/assets/works/googleads/cinobo2.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "cinobo cannes",
+        src: "/assets/works/googleads/cinobo3.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "cinobo horror",
+        src: "/assets/works/googleads/cinobohorror1.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "cinobo horror",
+        src: "/assets/works/googleads/cinobohorror2.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "cinobo horror",
+        src: "/assets/works/googleads/cinobohorror3.jpg",
+      },
+    ],
+  },
   {
     id: 8,
     title: "Packaging",
@@ -720,7 +747,66 @@ export const worksData = [
       },
     ],
   },
-  { id: 9, title: "Video Editing", images: [] },
-  { id: 10, title: "Movie Trailers", images: [] },
   { id: 11, title: "T Shirts", images: [] },
+];
+
+export const videoData = [
+  {
+    id: uuidv4(),
+    title: "Movie Trailers",
+    videos: [
+      {
+        id: uuidv4(),
+        title: "Abyssal Zone",
+        src: "/videos/abyssal-zone.mp4",
+        thumb: "/videos/abyssal-zone-thumb.png",
+        size: {
+          width: 640,
+          height: 360,
+        },
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    title: "Animations",
+    videos: [
+      {
+        id: uuidv4(),
+        title: "Ear T-Shirt Animation",
+        src: "/videos/ear-t-shirt.mp4",
+        thumb: "/videos/ear-thumb.png",
+        size: {
+          width: 300,
+          height: 300,
+        },
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    title: "Video Editing",
+    videos: [
+      {
+        id: uuidv4(),
+        title: "Cinobo Horror",
+        src: "/videos/cinobo-horror.mp4",
+        thumb: "/videos/cinobo-horror-thumb.png",
+        size: {
+          width: 640,
+          height: 360,
+        },
+      },
+      {
+        id: uuidv4(),
+        title: "Ear-Astroneir Design Colab",
+        src: "/videos/ear-astroneir-design-colab.mp4",
+        thumb: "/videos/ear-colab-thumb.png",
+        size: {
+          width: 300,
+          height: 300,
+        },
+      },
+    ],
+  },
 ];

@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.pathname !== "/works") return;
+    if (router.pathname !== "/works" && router.pathname !== "/music") return;
 
     setIsWorks(true);
   }, [router]);
@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
       <Header />
       <div
         className={`gl-container mx-auto relative overflow-x-hidden ${
-          isWorks ? "overflow-y-auto" : "overflow-y-hidden"
+          isWorks ? "overflow-y-scroll" : "overflow-y-hidden"
         }`}
       >
         <AnimatePresence>{isBioOpen && <Bio />}</AnimatePresence>

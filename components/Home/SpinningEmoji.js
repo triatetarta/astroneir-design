@@ -275,72 +275,79 @@ const SpinningEmoji = ({ eyeRef }) => {
               strokeMiterlimit='10'
             />
           </svg>
-          <div className='absolute top-0 w-full h-full flex items-center justify-center'>
+
+          <div className='absolute top-0 w-full h-full flex items-center justify-center z-40'>
             <svg
-              ref={eyeRef}
               width='100%'
               height='100%'
-              viewBox='0 0 57 57'
+              viewBox='0 0 137 57'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
             >
               <path
-                d='M28.2299 55.82C43.5061 55.82 55.8899 43.4362 55.8899 28.16C55.8899 12.8838 43.5061 0.5 28.2299 0.5C12.9538 0.5 0.569946 12.8838 0.569946 28.16C0.569946 43.4362 12.9538 55.82 28.2299 55.82Z'
-                fill='#0D25FF'
+                d='M136 28.57L135.79 28.37'
                 stroke='#0C0C0C'
                 strokeMiterlimit='10'
-                className='EYE'
               />
               <path
-                d='M28.23 43.23C36.553 43.23 43.3 36.4829 43.3 28.16C43.3 19.8371 36.553 13.09 28.23 13.09C19.9071 13.09 13.16 19.8371 13.16 28.16C13.16 36.4829 19.9071 43.23 28.23 43.23Z'
+                d='M0.71 28.37L0.5 28.57'
+                stroke='#0C0C0C'
+                strokeMiterlimit='10'
+              />
+              <path
+                d='M0.71 28.37L0.5 28.16'
+                stroke='#0C0C0C'
+                strokeMiterlimit='10'
+              />
+              <path
+                d='M136 28.16L135.79 28.37'
+                stroke='#0C0C0C'
+                strokeMiterlimit='10'
+              />
+              <path
+                d='M134.17 26.84C114.589 13.9619 91.6662 7.09925 68.23 7.09925C44.7939 7.09925 21.8708 13.9619 2.29004 26.84C20.0786 9.92789 43.6852 0.497101 68.23 0.497101C92.7749 0.497101 116.382 9.92789 134.17 26.84Z'
                 fill='black'
                 stroke='#0C0C0C'
                 strokeMiterlimit='10'
               />
               <path
-                d='M17.1 21.56C19.276 21.56 21.04 19.796 21.04 17.62C21.04 15.444 19.276 13.68 17.1 13.68C14.924 13.68 13.16 15.444 13.16 17.62C13.16 19.796 14.924 21.56 17.1 21.56Z'
-                fill='white'
+                d='M2.29004 30.07C21.8708 42.9481 44.7939 49.8108 68.23 49.8108C91.6662 49.8108 114.589 42.9481 134.17 30.07C116.382 46.9821 92.7749 56.4129 68.23 56.4129C43.6852 56.4129 20.0786 46.9821 2.29004 30.07Z'
+                fill='black'
                 stroke='#0C0C0C'
                 strokeMiterlimit='10'
               />
             </svg>
-            <div className='absolute top-0 w-full h-full flex items-center justify-center'>
+          </div>
+
+          <div
+            className='absolute top-0 left-0 bottom-0 right-0'
+            style={{ clipPath: "ellipse(66px 23px at 50% 28px)" }}
+          >
+            <div className='absolute top-0 w-full h-full flex items-center justify-center eye-core'>
               <svg
+                ref={eyeRef}
                 width='100%'
                 height='100%'
-                viewBox='0 0 137 57'
+                viewBox='0 0 57 57'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
               >
                 <path
-                  d='M136 28.57L135.79 28.37'
+                  d='M28.2299 55.82C43.5061 55.82 55.8899 43.4362 55.8899 28.16C55.8899 12.8838 43.5061 0.5 28.2299 0.5C12.9538 0.5 0.569946 12.8838 0.569946 28.16C0.569946 43.4362 12.9538 55.82 28.2299 55.82Z'
+                  fill='#0D25FF'
                   stroke='#0C0C0C'
                   strokeMiterlimit='10'
+                  className='EYE'
                 />
                 <path
-                  d='M0.71 28.37L0.5 28.57'
-                  stroke='#0C0C0C'
-                  strokeMiterlimit='10'
-                />
-                <path
-                  d='M0.71 28.37L0.5 28.16'
-                  stroke='#0C0C0C'
-                  strokeMiterlimit='10'
-                />
-                <path
-                  d='M136 28.16L135.79 28.37'
-                  stroke='#0C0C0C'
-                  strokeMiterlimit='10'
-                />
-                <path
-                  d='M134.17 26.84C114.589 13.9619 91.6662 7.09925 68.23 7.09925C44.7939 7.09925 21.8708 13.9619 2.29004 26.84C20.0786 9.92789 43.6852 0.497101 68.23 0.497101C92.7749 0.497101 116.382 9.92789 134.17 26.84Z'
+                  d='M28.23 43.23C36.553 43.23 43.3 36.4829 43.3 28.16C43.3 19.8371 36.553 13.09 28.23 13.09C19.9071 13.09 13.16 19.8371 13.16 28.16C13.16 36.4829 19.9071 43.23 28.23 43.23Z'
                   fill='black'
                   stroke='#0C0C0C'
                   strokeMiterlimit='10'
                 />
                 <path
-                  d='M2.29004 30.07C21.8708 42.9481 44.7939 49.8108 68.23 49.8108C91.6662 49.8108 114.589 42.9481 134.17 30.07C116.382 46.9821 92.7749 56.4129 68.23 56.4129C43.6852 56.4129 20.0786 46.9821 2.29004 30.07Z'
-                  fill='black'
+                  d='M17.1 21.56C19.276 21.56 21.04 19.796 21.04 17.62C21.04 15.444 19.276 13.68 17.1 13.68C14.924 13.68 13.16 15.444 13.16 17.62C13.16 19.796 14.924 21.56 17.1 21.56Z'
+                  fill='white'
                   stroke='#0C0C0C'
                   strokeMiterlimit='10'
                 />

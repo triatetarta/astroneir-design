@@ -49,25 +49,12 @@ const Showcase = () => {
   };
 
   const handleMouseEye = (e) => {
-    const ref = eyeRef.current.getBoundingClientRect();
-
-    let eyeX = ref.left + eyeRef.current.clientWidth / 2;
-    let eyeY = ref.top + eyeRef.current.clientHeight / 2;
-
     let x = e.clientX;
     let y = e.clientY;
 
-    let radian = Math.atan2(x - eyeX, y - eyeY);
+    const xAxis = x > 120 ? x / 100 : (x / 15) * -1;
 
-    let rotationDegrees = radian * (180 / Math.PI) * -1 + 180;
-
-    eyeRef.current.style.transform = "rotate(" + rotationDegrees + "deg)";
-
-    // const xAxis = x > 160 ? x / 30 : (x / 20) * -1;
-
-    // console.log(xAxis);
-
-    // eyeRef.current.style.transform = "translateX(" + xAxis + "px)";
+    eyeRef.current.style.transform = "translateX(" + xAxis + "px)";
   };
 
   useEffect(() => {

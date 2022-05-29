@@ -23,6 +23,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
     "autoprefixer": "^10.4.7",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.6",
