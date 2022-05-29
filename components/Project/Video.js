@@ -47,7 +47,7 @@ const Video = ({ src, id, size, thumb }) => {
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className='relative overflow-hidden rounded-lg pointer-events-auto  aspect-w-16 aspect-h-9'
+      className='relative overflow-hidden rounded-lg pointer-events-auto  aspect-w-16 aspect-h-9 mb-6'
       key={id}
       onClick={onClickHandler}
       style={{ width: size.width, height: size.height }}

@@ -196,11 +196,6 @@ export const worksData = [
       },
       {
         id: uuidv4(),
-        project: "happy art",
-        src: "/assets/works/logos/happyart.jpg",
-      },
-      {
-        id: uuidv4(),
         project: "aesthetics",
         src: "/assets/works/logos/aesthetics.png",
       },
@@ -304,11 +299,6 @@ export const worksData = [
         id: uuidv4(),
         project: "fade radio",
         src: "/assets/works/music-posters/poster-web.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "slap",
-        src: "/assets/works/music-posters/slap.webp",
       },
     ],
   },
@@ -672,7 +662,27 @@ export const worksData = [
       },
     ],
   },
-  { id: 11, title: "T Shirts", images: [] },
+  {
+    id: 11,
+    title: "Posters",
+    images: [
+      {
+        id: uuidv4(),
+        project: "Athens Towers",
+        src: "/assets/works/posters/athens-towers-01.png",
+      },
+      {
+        id: uuidv4(),
+        project: "Greek Islands",
+        src: "/assets/works/posters/greek-islands-01.png",
+      },
+      {
+        id: uuidv4(),
+        project: "Hilton",
+        src: "/assets/works/posters/hilton-01.png",
+      },
+    ],
+  },
 ];
 
 export const videoData = [
@@ -717,6 +727,36 @@ export const videoData = [
         title: "Cinobo Horror",
         src: "/videos/cinobo-horror.mp4",
         thumb: "/videos/cinobo-horror-thumb.png",
+        size: {
+          width: 640,
+          height: 360,
+        },
+      },
+      {
+        id: uuidv4(),
+        title: "Cinobo Cow Teaser",
+        src: "/videos/cinobo-cow-teaser.mp4",
+        thumb: "/videos/agelada.png",
+        size: {
+          width: 640,
+          height: 360,
+        },
+      },
+      {
+        id: uuidv4(),
+        title: "Cinobo February",
+        src: "/videos/cinobo-feb.mp4",
+        thumb: "/videos/cin-feb.png",
+        size: {
+          width: 640,
+          height: 360,
+        },
+      },
+      {
+        id: uuidv4(),
+        title: "Cinobo May",
+        src: "/videos/cinobo-may.mp4",
+        thumb: "/videos/cin-may.png",
         size: {
           width: 640,
           height: 360,
