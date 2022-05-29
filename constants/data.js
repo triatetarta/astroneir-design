@@ -427,6 +427,26 @@ export const worksData = [
         project: "eleven",
         src: "/assets/works/illustrations/eleven.png",
       },
+      {
+        id: uuidv4(),
+        project: "building",
+        src: "/assets/works/illustrations/building-01.png",
+      },
+      {
+        id: uuidv4(),
+        project: "building",
+        src: "/assets/works/illustrations/jap-01.png",
+      },
+      {
+        id: uuidv4(),
+        project: "catpocalypse",
+        src: "/assets/works/illustrations/catpocalypse-01.png",
+      },
+      {
+        id: uuidv4(),
+        project: "mon",
+        src: "/assets/works/illustrations/mon-01.png",
+      },
     ],
   },
   {

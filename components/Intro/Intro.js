@@ -1,9 +1,7 @@
-import Emoji from "../../public/assets/emoji.svg";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
 const Intro = ({ setLoaded }) => {
-  const emojiAnimation = useAnimation();
   const bgRedAnimation = useAnimation();
   const bgBlueAnimation = useAnimation();
 
@@ -15,9 +13,6 @@ const Intro = ({ setLoaded }) => {
       y: 2000,
       x: 1000,
       rotate: -35,
-    });
-    emojiAnimation.set({
-      y: -1000,
     });
     await bgRedAnimation.start({
       y: "-100%",
@@ -34,17 +29,6 @@ const Intro = ({ setLoaded }) => {
       },
     });
 
-    await emojiAnimation.start({
-      y: 0,
-    });
-
-    await emojiAnimation.start({
-      scale: 8,
-      opacity: 0,
-      transition: {
-        duration: 0.75,
-      },
-    });
     await setLoaded(true);
   };
 
@@ -53,7 +37,12 @@ const Intro = ({ setLoaded }) => {
   }, []);
 
   return (
-    <div className='fixed top-0 left-0 right-0 bottom-0'>
+    <motion.div
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className='fixed top-0 left-0 right-0 bottom-0'
+    >
       <motion.div
         animate={bgRedAnimation}
         className='fixed top-0 left-0 right-0 bottom-0 bg-astro-red z-50'
@@ -62,12 +51,8 @@ const Intro = ({ setLoaded }) => {
         animate={bgBlueAnimation}
         className='fixed -top-[400px] -left-[400px] -right-[400px] -bottom-[400px] bg-astro-blue z-50'
       />
-      <div className='fixed top-0 left-0 right-0 bottom-0 bg-astro-pink flex items-center justify-center'>
-        <motion.div className='w-2/3 md:max-w-[300px]' animate={emojiAnimation}>
-          <Emoji />
-        </motion.div>
-      </div>
-    </div>
+      <motion.div className='fixed top-0 left-0 right-0 bottom-0 bg-astro-pink flex items-center justify-center'></motion.div>
+    </motion.div>
   );
 };
 

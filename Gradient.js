@@ -1,11 +1,3 @@
-/*
- *   Stripe WebGl Gradient Animation
- *   All Credits to Stripe.com
- *   ScrollObserver functionality to disable animation when not scrolled into view has been disabled and
- *   commented out for now.
- *   https://kevinhufnagl.com
- */
-
 //Converting colors to proper format
 function normalizeColor(hexCode) {
   return [
@@ -624,14 +616,14 @@ class Gradient {
         playing: true,
       }),
       document.querySelectorAll("canvas").length < 1
-        ? console.log("DID NOT LOAD HERO STRIPE CANVAS")
+        ? console.log("DID NOT LOAD CANVAS")
         : ((this.minigl = new MiniGl(this.el, null, null, !0)),
           requestAnimationFrame(() => {
             this.el &&
               ((this.computedCanvasStyle = getComputedStyle(this.el)),
               this.waitForCssVars());
           }));
-          /*
+    /*
           this.scrollObserver = await s.create(.1, !1),
           this.scrollObserver.observe(this.el),
           this.scrollObserver.onSeparate(() => {

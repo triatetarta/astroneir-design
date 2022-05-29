@@ -25,9 +25,9 @@ function MyApp({ Component, pageProps }) {
 
       <AnimatePresence>
         {loaded ? (
-          <Component {...pageProps} />
+          <Component {...pageProps} key='main' />
         ) : (
-          <Intro setLoaded={setLoaded} />
+          <Intro setLoaded={setLoaded} key='intro' />
         )}
       </AnimatePresence>
     </Provider>
