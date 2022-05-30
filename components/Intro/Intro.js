@@ -48,7 +48,7 @@ const Intro = ({ setLoaded }) => {
     }
     setCounter((prevCounter) => {
       if (prevCounter < 100) {
-        return counter + 1;
+        return counter + 5;
       }
     });
   }, 200);

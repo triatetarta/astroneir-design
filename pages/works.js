@@ -43,6 +43,7 @@ const Works = () => {
     if (works.length === 0) return;
 
     setSelectedWork(works[0]);
+    setWork(works[0]);
   }, [works]);
 
   const onClickHandler = (work) => {
