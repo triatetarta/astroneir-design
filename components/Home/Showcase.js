@@ -11,6 +11,7 @@ import {
   emojiSad,
   socialMediaData,
   stickersData,
+  whileTapScale,
 } from "../../constants/data";
 import { openBio } from "../Bio/reducer";
 import { openContact } from "../Contact/reducer";
@@ -126,6 +127,7 @@ const Showcase = () => {
 
           return (
             <motion.div
+              whileTap={{ scale: whileTapScale }}
               onMouseEnter={(e) => handleMouseEnter(e, index, sticker)}
               onMouseLeave={handleMouseLeave}
               onMouseMove={handleMouse}
@@ -156,7 +158,8 @@ const Showcase = () => {
           <div className='flex space-x-2 lg:mb-3'>
             {socialMedia?.map((media) => {
               return (
-                <a
+                <motion.a
+                  whileTap={{ scale: whileTapScale }}
                   key={media.id}
                   target='_blank'
                   href={media.link}
@@ -185,7 +188,7 @@ const Showcase = () => {
                     width={24}
                     height={24}
                   />
-                </a>
+                </motion.a>
               );
             })}
           </div>

@@ -2,17 +2,47 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../Cursor/reducer";
 import { MusicController } from "../Music";
-import { emojiHappy, emojiSad } from "../../constants/data";
+import {
+  emojiHappy,
+  emojiSad,
+  stickersData,
+  whileTapScale,
+} from "../../constants/data";
 import { openBio } from "../Bio/reducer";
 import { openContact } from "../Contact/reducer";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export const Header = () => {
+  const [navItems, setNavItems] = useState([]);
   const router = useRouter();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    setNavItems(stickersData);
+  }, []);
+
+  const onClickHandler = (item, index) => {
+    if (item.title === "Bio") {
+      dispatch(openBio());
+    }
+    if (item.title === "Works") {
+      router.push("/works");
+    }
+    if (item.title === "Music") {
+      router.push("/music");
+    }
+    if (item.title === "Contact") {
+      dispatch(openContact());
+    }
+
+    return;
+  };
+
   return (
     <nav className='gl-container mx-auto flex items-start justify-between pt-10 text-white relative'>
-      <div
+      <motion.div
+        whileTap={{ scale: whileTapScale }}
         className='cursor-pointer'
         onClick={() => router.push("/")}
         onMouseEnter={() =>
@@ -33,93 +63,36 @@ export const Header = () => {
         }
       >
         <h1 className='font-semibold'>Anestis Neiros</h1>
-      </div>
+      </motion.div>
       <div>
-        <ul className='font-semibold'>
-          <li
-            onClick={() => dispatch(openBio())}
-            onMouseEnter={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiHappy,
-                  cursorVariant: "smile",
-                })
-              )
-            }
-            onMouseLeave={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiSad,
-                  cursorVariant: "default",
-                })
-              )
-            }
-          >
-            Bio
-          </li>
-          <li
-            onClick={() => router.push("/works")}
-            onMouseEnter={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiHappy,
-                  cursorVariant: "smile",
-                })
-              )
-            }
-            onMouseLeave={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiSad,
-                  cursorVariant: "default",
-                })
-              )
-            }
-          >
-            Works
-          </li>
-          <li
-            onClick={() => router.push("/music")}
-            onMouseEnter={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiHappy,
-                  cursorVariant: "smile",
-                })
-              )
-            }
-            onMouseLeave={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiSad,
-                  cursorVariant: "default",
-                })
-              )
-            }
-          >
-            Music
-          </li>
-          <li
-            onClick={() => dispatch(openContact())}
-            onMouseEnter={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiHappy,
-                  cursorVariant: "smile",
-                })
-              )
-            }
-            onMouseLeave={() =>
-              dispatch(
-                setCursor({
-                  cursorContent: emojiSad,
-                  cursorVariant: "default",
-                })
-              )
-            }
-          >
-            Contact
-          </li>
+        <ul className='font-semibold flex flex-col px-2'>
+          {navItems.map((item, index) => {
+            return (
+              <motion.li
+                whileTap={{ scale: whileTapScale }}
+                onClick={() => onClickHandler(item, index)}
+                onMouseEnter={() =>
+                  dispatch(
+                    setCursor({
+                      cursorContent: emojiHappy,
+                      cursorVariant: "smile",
+                    })
+                  )
+                }
+                onMouseLeave={() =>
+                  dispatch(
+                    setCursor({
+                      cursorContent: emojiSad,
+                      cursorVariant: "default",
+                    })
+                  )
+                }
+                key={item.id}
+              >
+                {item.title}
+              </motion.li>
+            );
+          })}
         </ul>
       </div>
       <div></div>

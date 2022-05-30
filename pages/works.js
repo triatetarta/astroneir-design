@@ -1,11 +1,11 @@
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../components/Cursor/reducer";
 import { Gallery } from "../components/Gallery";
 import { Layout } from "../components/Layout";
 import Work from "../components/Project/Work";
-import { worksData, videoData } from "../constants/data";
+import { worksData, videoData, whileTapScale } from "../constants/data";
 import { emojiHappy, emojiSad } from "../constants/data";
 
 const Works = () => {
@@ -37,6 +37,12 @@ const Works = () => {
       ...new Set(workImages?.map((image) => image.project)),
     ]);
   }, [selectedWork]);
+
+  useEffect(() => {
+    if (works.length === 0) return;
+
+    setSelectedWork(works[0]);
+  }, [works]);
 
   const onClickHandler = (work) => {
     if (selectedWork === work) return;
@@ -75,7 +81,8 @@ const Works = () => {
             <ul className='uppercase text-white  flex md:flex-col flex-row flex-wrap md:space-x-0 items-center md:items-start justify-around'>
               {works?.map((work) => {
                 return (
-                  <li
+                  <motion.li
+                    whileTap={{ scale: whileTapScale }}
                     className='break-normal text-sm md:text-base mr-1 md:mr-0 mt-1 md:mt-0'
                     onClick={() => onClickHandler(work)}
                     onMouseEnter={() =>
@@ -97,7 +104,7 @@ const Works = () => {
                     key={work.id}
                   >
                     {work.title}
-                  </li>
+                  </motion.li>
                 );
               })}
 
@@ -137,7 +144,7 @@ const Works = () => {
                   <>
                     {filteredMenu?.map((item, index) => {
                       return (
-                        <button
+                        <motion.button
                           onMouseEnter={() =>
                             dispatch(
                               setCursor({
@@ -154,12 +161,13 @@ const Works = () => {
                               })
                             )
                           }
+                          whileTap={{ scale: whileTapScale }}
                           onClick={() => filterWork(item)}
-                          className='bg-white text-xs md:text-sm font-bold px-2 py-1 rounded-md cursor-none capitalize'
+                          className='text-white border text-xs md:text-sm font-semibold px-2 py-1 rounded-full cursor-none capitalize'
                           key={index}
                         >
                           {item}
-                        </button>
+                        </motion.button>
                       );
                     })}
                   </>

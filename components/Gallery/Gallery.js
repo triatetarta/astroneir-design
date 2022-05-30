@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { emojiHappy, emojiSad, transition } from "../../constants/data";
+import {
+  emojiHappy,
+  emojiSad,
+  transition,
+  whileTapScale,
+} from "../../constants/data";
 import ArrowLeft from "../../public/assets/arrows/arrowLeft.svg";
 import ArrowRight from "../../public/assets/arrows/arrowRight.svg";
 import CloseIcon from "../../public/assets/xWhite.svg";
@@ -35,7 +40,8 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
         exit={{ opacity: 0 }}
         className='gallery fixed top-0 right-0 bottom-0 left-0 bg-black/90 z-30 select-none pointer-events-none'
       >
-        <div
+        <motion.div
+          whileTap={{ scale: whileTapScale }}
           onMouseEnter={() =>
             dispatch(
               setCursor({
@@ -56,7 +62,7 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
           className='w-14 h-14 ml-auto py-4 px-4 flex items-center justify-center pointer-events-auto z-40'
         >
           <CloseIcon className='w-full h-full' />
-        </div>
+        </motion.div>
         <div className='relative h-full w-full mx-auto '>
           <div
             onMouseEnter={() =>

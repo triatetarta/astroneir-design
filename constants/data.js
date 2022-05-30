@@ -10,6 +10,8 @@ export const transition = {
   damping: 30,
 };
 
+export const whileTapScale = 0.9;
+
 export const stickersData = [
   {
     id: 1,

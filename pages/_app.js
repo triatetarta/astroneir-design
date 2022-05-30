@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Intro } from "../components/Intro/";
 import { AnimatePresence } from "framer-motion";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   const [loaded, setLoaded] = useState(false);
@@ -20,6 +21,23 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
+      <Head>
+        <meta itemProp='name' content='Astroneir Design' />
+        <meta itemProp='description' content='Graphic Designer' />
+        <meta itemProp='image' content='https://i.imgur.com/dWXIOhh.png' />
+
+        <meta property='og:url' content='https://www.astroneir-design.com' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Astroneir Design' />
+        <meta property='og:description' content='Graphic Designer' />
+        <meta property='og:image' content='https://i.imgur.com/dWXIOhh.png' />
+
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:title' content='Astroneir Design' />
+        <meta name='twitter:description' content='Graphic Designer' />
+        <meta name='twitter:image' content='https://i.imgur.com/dWXIOhh.png' />
+      </Head>
+
       <Cursor />
       <MusicWrapper />
 

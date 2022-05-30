@@ -4,7 +4,12 @@ import CloseIcon from "../../public/assets/x.svg";
 import unicorn from "../../public/assets/unicorn.png";
 import { closeBio } from "./reducer";
 import Image from "next/image";
-import { emojiHappy, emojiSad, socialMediaData } from "../../constants/data";
+import {
+  emojiHappy,
+  emojiSad,
+  socialMediaData,
+  whileTapScale,
+} from "../../constants/data";
 import { useEffect, useState } from "react";
 import { setCursor } from "../Cursor/reducer";
 
@@ -29,7 +34,8 @@ const Bio = () => {
         onClick={() => dispatch(closeBio())}
         className='p-3 relative flex items-center justify-end'
       >
-        <span
+        <motion.span
+          whileTap={{ scale: whileTapScale }}
           onMouseEnter={() =>
             dispatch(
               setCursor({
@@ -49,7 +55,7 @@ const Bio = () => {
           className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center'
         >
           <CloseIcon />
-        </span>
+        </motion.span>
       </div>
       <div className='flex flex-col md:flex-row'>
         <p className='w-full md:w-2/3'>
@@ -78,7 +84,8 @@ const Bio = () => {
       <div className='h-full flex items-center space-x-4 mt-6'>
         {socialMedia?.map((media) => {
           return (
-            <a
+            <motion.a
+              whileTap={{ scale: whileTapScale }}
               key={media.id}
               target='_blank'
               href={media.link}
@@ -107,7 +114,7 @@ const Bio = () => {
                 width={24}
                 height={24}
               />
-            </a>
+            </motion.a>
           );
         })}
       </div>

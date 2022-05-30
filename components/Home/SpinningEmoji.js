@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const SpinningEmoji = ({ eyeRef }) => {
+  const [spinDirection, setSpinDirection] = useState(true);
+
   return (
-    <div className='w-32 h-32 md:w-44 md:h-44 my-4 relative'>
+    <div
+      onMouseEnter={() => setSpinDirection(false)}
+      onMouseLeave={() => setSpinDirection(true)}
+      className='w-32 h-32 md:w-44 md:h-44 my-4 relative'
+    >
       <motion.div
         initial={{ rotate: 0 }}
-        animate={{ rotate: 360 }}
+        animate={{ rotate: spinDirection ? 360 : -360 }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
         className='relative w-full h-full'
       >

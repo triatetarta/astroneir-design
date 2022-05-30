@@ -2,7 +2,12 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import CloseIcon from "../../public/assets/x.svg";
 import { setCursor } from "../Cursor/reducer";
-import { emojiHappy, emojiSad, socialMediaData } from "../../constants/data";
+import {
+  emojiHappy,
+  emojiSad,
+  socialMediaData,
+  whileTapScale,
+} from "../../constants/data";
 import { closeContact } from "./reducer";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -41,7 +46,8 @@ const Contact = () => {
       className='fixed top-1/2 left-1/2 w-[350px] md:w-[400px] bg-white px-6 pt-5 pb-10 rounded-md z-40'
     >
       <div className='p-3 relative flex items-center justify-end'>
-        <span
+        <motion.span
+          whileTap={{ scale: whileTapScale }}
           onClick={() => dispatch(closeContact())}
           onMouseEnter={() =>
             dispatch(
@@ -62,7 +68,7 @@ const Contact = () => {
           className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center'
         >
           <CloseIcon />
-        </span>
+        </motion.span>
       </div>
 
       <div>
@@ -79,7 +85,8 @@ const Contact = () => {
       <div className='h-full flex items-center space-x-4 mt-6'>
         {socialMedia?.map((media) => {
           return (
-            <a
+            <motion.a
+              whileTap={{ scale: whileTapScale }}
               key={media.id}
               target='_blank'
               href={media.link}
@@ -105,7 +112,7 @@ const Contact = () => {
               <div className='md:w-6 md:h-6 w-5 h-5 relative'>
                 <Image src={media.icon} alt={media.title} layout='fill' />
               </div>
-            </a>
+            </motion.a>
           );
         })}
       </div>

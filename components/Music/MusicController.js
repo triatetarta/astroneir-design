@@ -4,7 +4,7 @@ import PlayingRight from "../../public/assets/playingright.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsPlaying, setNewContext, setTrack } from "./reducer";
 import { setCursor } from "../Cursor/reducer";
-import { emojiHappy, emojiSad } from "../../constants/data";
+import { emojiHappy, emojiSad, whileTapScale } from "../../constants/data";
 
 const MusicController = () => {
   const { music, track, isPlaying } = useSelector((state) => state.sound);
@@ -30,7 +30,8 @@ const MusicController = () => {
   return (
     <div className='flex flex-col items-center space-y-3'>
       <div className='flex items-center space-x-4'>
-        <div
+        <motion.div
+          whileTap={{ scale: whileTapScale }}
           onMouseEnter={() =>
             dispatch(
               setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
@@ -49,8 +50,9 @@ const MusicController = () => {
             alt='play icon'
             className='w-full h-full'
           />
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          whileTap={{ scale: whileTapScale }}
           onMouseEnter={() =>
             dispatch(
               setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
@@ -65,8 +67,9 @@ const MusicController = () => {
           className='h-5 w-5 md:h-6 md:w-6'
         >
           <img src='/assets/musicplayer/pause.png' alt='pause icon' />
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          whileTap={{ scale: whileTapScale }}
           onMouseEnter={() =>
             dispatch(
               setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" })
@@ -81,7 +84,7 @@ const MusicController = () => {
           className='h-5 w-5 md:h-6 md:w-6'
         >
           <img src='/assets/musicplayer/next.png' alt='next icon' />
-        </div>
+        </motion.div>
       </div>
 
       <AnimatePresence>
