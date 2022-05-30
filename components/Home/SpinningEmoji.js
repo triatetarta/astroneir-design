@@ -8,7 +8,7 @@ const SpinningEmoji = ({ eyeRef }) => {
     <div
       onMouseEnter={() => setSpinDirection(false)}
       onMouseLeave={() => setSpinDirection(true)}
-      className='w-32 h-32 md:w-44 md:h-44 my-4 relative'
+      className='w-32 h-32 md:w-44 md:h-44 md:my-4 relative'
     >
       <motion.div
         initial={{ rotate: 0 }}

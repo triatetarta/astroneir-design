@@ -22,9 +22,22 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <Head>
-        <meta itemProp='name' content='Astroneir Design' />
-        <meta itemProp='description' content='Graphic Designer' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta charSet='utf-8' />
+
+        <meta itemProp='name' content='Astroneir Design - Graphic Designer' />
+        <meta
+          itemProp='description'
+          content='Astroneir Design is a creative Graphic Designer, with passion for developing unique custom artworks. Highly artistic, always
+          on task with innovative approach to ideas and concept development.'
+        />
         <meta itemProp='image' content='https://i.imgur.com/dWXIOhh.png' />
+
+        <meta
+          name='keywords'
+          content='Graphic Design, Colours, Illustration, Web Design, Video Editing, Anestis Neiros, Astroneir Design, Branding, Music Posters, Movie Posters, Packaging, Movie Trailers, T Shirts'
+          key='titleKeywords'
+        />
 
         <meta property='og:url' content='https://www.astroneir-design.com' />
         <meta property='og:type' content='website' />

@@ -7,6 +7,7 @@ import { Layout } from "../components/Layout";
 import Work from "../components/Project/Work";
 import { worksData, videoData, whileTapScale } from "../constants/data";
 import { emojiHappy, emojiSad } from "../constants/data";
+import Head from "next/head";
 
 const Works = () => {
   const [works, setWorks] = useState([]);
@@ -75,6 +76,15 @@ const Works = () => {
 
   return (
     <>
+      <Head>
+        <title>Astroneir Design - Works</title>
+        <meta
+          name='description'
+          content='Astroneir Design is a creative Graphic Designer, with passion for developing unique custom artworks. Highly artistic, always
+          on task with innovative approach to ideas and concept development.'
+        />
+      </Head>
+
       <Layout>
         <section className='w-full flex md:flex-row flex-col justify-between h-[calc(100vh-8.5rem)] md:pt-20 pt-8'>
           <aside className='md:shrink-0'>

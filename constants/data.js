@@ -97,7 +97,7 @@ export const socialMediaData = [
 
 export const worksData = [
   {
-    id: 1,
+    id: uuidv4(),
     title: "Branding",
     images: [
       {
@@ -188,7 +188,7 @@ export const worksData = [
     ],
   },
   {
-    id: 2,
+    id: uuidv4(),
     title: "Logos",
     images: [
       {
@@ -214,7 +214,7 @@ export const worksData = [
     ],
   },
   {
-    id: 3,
+    id: uuidv4(),
     title: "Music Posters",
     images: [
       {
@@ -226,6 +226,11 @@ export const worksData = [
         id: uuidv4(),
         project: "nils frahm",
         src: "/assets/works/music-posters/nilsfrahm.webp",
+      },
+      {
+        id: uuidv4(),
+        project: "nils frahm",
+        src: "/assets/works/music-posters/nilsfrahm-02.jpg",
       },
       {
         id: uuidv4(),
@@ -274,38 +279,28 @@ export const worksData = [
       },
       {
         id: uuidv4(),
-        project: "fade radio",
-        src: "/assets/works/music-posters/facebook-event.webp",
+        project: "Lubomyr Melnyk",
+        src: "/assets/works/music-posters/lubomyr-melnyk.png",
       },
       {
         id: uuidv4(),
-        project: "fade radio",
-        src: "/assets/works/music-posters/facebook-logo.webp",
+        project: "Christian Loffler",
+        src: "/assets/works/music-posters/christian-loffler.png",
       },
       {
         id: uuidv4(),
-        project: "fade radio",
-        src: "/assets/works/music-posters/insta-facebook.webp",
+        project: "Motorama",
+        src: "/assets/works/music-posters/motorama.png",
       },
       {
         id: uuidv4(),
-        project: "fade radio",
-        src: "/assets/works/music-posters/insta-fb.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "fade radio",
-        src: "/assets/works/music-posters/insta-story.webp",
-      },
-      {
-        id: uuidv4(),
-        project: "fade radio",
-        src: "/assets/works/music-posters/poster-web.webp",
+        project: "Parra For Cuva",
+        src: "/assets/works/music-posters/parra-for-cuva.png",
       },
     ],
   },
   {
-    id: 4,
+    id: uuidv4(),
     title: "Movie Posters",
     images: [
       {
@@ -358,10 +353,91 @@ export const worksData = [
         project: "the road",
         src: "/assets/works/movie-posters/theroad.png",
       },
+      {
+        id: uuidv4(),
+        project: "abyssal zone",
+        src: "/assets/works/movie-posters/abyssal-zone.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "the man from earth",
+        src: "/assets/works/movie-posters/the-man-from-earth.jpg",
+      },
     ],
   },
   {
-    id: 5,
+    id: uuidv4(),
+    title: "Festivals",
+    images: [
+      {
+        id: uuidv4(),
+        project: "plissken",
+        src: "/assets/works/festivals/plissken-01.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "plissken",
+        src: "/assets/works/festivals/plissken-02.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "plissken",
+        src: "/assets/works/festivals/plissken-03.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "plissken",
+        src: "/assets/works/festivals/plissken-04.png",
+      },
+      {
+        id: uuidv4(),
+        project: "plissken",
+        src: "/assets/works/festivals/plissken-05.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "plissken",
+        src: "/assets/works/festivals/plissken-06.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "plissken",
+        src: "/assets/works/festivals/plissken-07.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "plissken",
+        src: "/assets/works/festivals/plissken-08.png",
+      },
+      {
+        id: uuidv4(),
+        project: "blackablackablacka",
+        src: "/assets/works/festivals/blackablackablacka-01.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "blackablackablacka",
+        src: "/assets/works/festivals/blackablackablacka-02.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "blackablackablacka",
+        src: "/assets/works/festivals/blackablackablacka-03.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "blackablackablacka",
+        src: "/assets/works/festivals/blackablackablacka-04.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "fade radio",
+        src: "/assets/works/festivals/poster-web.webp",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
     title: "Illustrations",
     images: [
       {
@@ -442,7 +518,28 @@ export const worksData = [
     ],
   },
   {
-    id: 6,
+    id: uuidv4(),
+    title: "Posters",
+    images: [
+      {
+        id: uuidv4(),
+        project: "Athens Towers",
+        src: "/assets/works/posters/athens-towers-01.png",
+      },
+      {
+        id: uuidv4(),
+        project: "Greek Islands",
+        src: "/assets/works/posters/greek-islands-01.png",
+      },
+      {
+        id: uuidv4(),
+        project: "Hilton",
+        src: "/assets/works/posters/hilton-01.png",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
     title: "Websites",
     images: [
       {
@@ -503,7 +600,7 @@ export const worksData = [
     ],
   },
   {
-    id: 7,
+    id: uuidv4(),
     title: "Google Ads",
     images: [
       {
@@ -539,7 +636,7 @@ export const worksData = [
     ],
   },
   {
-    id: 8,
+    id: uuidv4(),
     title: "Packaging",
     images: [
       {
@@ -661,27 +758,6 @@ export const worksData = [
         id: uuidv4(),
         project: "zita shoes",
         src: "/assets/works/packaging/shoes1.png",
-      },
-    ],
-  },
-  {
-    id: 11,
-    title: "Posters",
-    images: [
-      {
-        id: uuidv4(),
-        project: "Athens Towers",
-        src: "/assets/works/posters/athens-towers-01.png",
-      },
-      {
-        id: uuidv4(),
-        project: "Greek Islands",
-        src: "/assets/works/posters/greek-islands-01.png",
-      },
-      {
-        id: uuidv4(),
-        project: "Hilton",
-        src: "/assets/works/posters/hilton-01.png",
       },
     ],
   },

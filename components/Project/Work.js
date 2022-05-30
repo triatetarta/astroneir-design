@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { emojiHappy, emojiSad, imagePlaceholder } from "../../constants/data";
 import { setCursor } from "../Cursor/reducer";
-import Video from "./Video";
+import VideoPlayer from "./VideoPlayer";
 
 const Work = ({
   selectedWork,
@@ -65,7 +65,7 @@ const Work = ({
                     setHover(false);
                     setHoverIndex(null);
                   }}
-                  className='w-[150px] h-[150px] overflow-hidden relative'
+                  className='w-[350px] h-[350px] md:w-[150px] md:h-[150px] overflow-hidden relative'
                 >
                   <Image
                     placeholder='blur'
@@ -95,18 +95,10 @@ const Work = ({
       {videos !== undefined ? (
         <motion.div
           layout
-          className='px-2 md:px-6 flex flex-wrap items-center justify-center w-full h-full mt-0 md:mt-4 pb-10 select-none pointer-events-none max-w-[800px] mx-auto'
+          className='px-2 md:px-6 flex flex-col md:flex-row md:flex-wrap items-center justify-center w-full h-full mt-10 md:mt-1 pb-10 mx-auto'
         >
           {videos?.map((item) => {
-            return (
-              <Video
-                key={item.id}
-                id={item.id}
-                src={item.src}
-                size={item.size}
-                thumb={item.thumb}
-              />
-            );
+            return <VideoPlayer key={item.id} src={item.src} />;
           })}
         </motion.div>
       ) : null}

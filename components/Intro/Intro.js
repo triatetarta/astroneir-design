@@ -1,7 +1,11 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
+import useInterval from "@use-it/interval";
+import Image from "next/image";
 
 const Intro = ({ setLoaded }) => {
+  const [counter, setCounter] = useState(0);
+  const [startCount, setStartCount] = useState(false);
   const bgRedAnimation = useAnimation();
   const bgBlueAnimation = useAnimation();
 
@@ -29,12 +33,25 @@ const Intro = ({ setLoaded }) => {
       },
     });
 
-    await setLoaded(true);
+    setStartCount(true);
   };
 
   useEffect(() => {
     sequence();
   }, []);
+
+  useInterval(() => {
+    if (!startCount) return;
+    if (counter === 100) {
+      setLoaded(true);
+      return;
+    }
+    setCounter((prevCounter) => {
+      if (prevCounter < 100) {
+        return counter + 1;
+      }
+    });
+  }, 200);
 
   return (
     <motion.div
@@ -51,7 +68,31 @@ const Intro = ({ setLoaded }) => {
         animate={bgBlueAnimation}
         className='fixed -top-[400px] -left-[400px] -right-[400px] -bottom-[400px] bg-astro-blue z-50'
       />
-      <motion.div className='fixed top-0 left-0 right-0 bottom-0 bg-astro-pink flex items-center justify-center'></motion.div>
+      <motion.div className='fixed top-0 left-0 right-0 bottom-0 bg-astro-pink flex flex-col items-center justify-center'>
+        <div className='w-[300px] h-[300px] relative overflow-hidden'>
+          <Image src='/assets/intro.png' layout='fill' priority />
+          <motion.div
+            initial={{ y: "0%" }}
+            animate={{ y: `${-counter}%` }}
+            className='absolute top-0 left-0 w-full h-full bg-astro-pink'
+          />
+        </div>
+        <div className='relative w-full'>
+          <AnimatePresence>
+            {startCount && (
+              <motion.h2
+                initial={{ opacity: 0, y: -40, x: "-50%" }}
+                animate={{ opacity: 1, y: 0, x: "-50%" }}
+                exit={{ opacity: 0, y: 40, x: "-50%" }}
+                key={"count" + counter}
+                className='text-white font-bold text-7xl absolute left-1/2 transform -translate-x-1/2'
+              >
+                {counter}
+              </motion.h2>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };

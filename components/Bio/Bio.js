@@ -30,11 +30,9 @@ const Bio = () => {
       exit={{ opacity: 0, scale: 0 }}
       className='fixed top-1/2 left-1/2 w-3/4 md:w-[750px] bg-white px-6 pt-5 pb-10 rounded-md z-40 transform -translate-x-1/2 -translate-y-1/2'
     >
-      <div
-        onClick={() => dispatch(closeBio())}
-        className='p-3 relative flex items-center justify-end'
-      >
+      <div className='p-3 relative flex items-center justify-end'>
         <motion.span
+          onClick={() => dispatch(closeBio())}
           whileTap={{ scale: whileTapScale }}
           onMouseEnter={() =>
             dispatch(
