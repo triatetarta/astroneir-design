@@ -739,26 +739,6 @@ export const worksData = [
       },
       {
         id: uuidv4(),
-        project: "vosinakis",
-        src: "/assets/works/packaging/vosinakis1.jpg",
-      },
-      {
-        id: uuidv4(),
-        project: "vosinakis",
-        src: "/assets/works/packaging/vosinakis2.png",
-      },
-      {
-        id: uuidv4(),
-        project: "vosinakis",
-        src: "/assets/works/packaging/vosinakis3.png",
-      },
-      {
-        id: uuidv4(),
-        project: "vosinakis",
-        src: "/assets/works/packaging/vosinakis4.png",
-      },
-      {
-        id: uuidv4(),
         project: "zita shoes",
         src: "/assets/works/packaging/shoes1.png",
       },
