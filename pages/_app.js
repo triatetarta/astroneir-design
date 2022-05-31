@@ -7,8 +7,9 @@ import MusicWrapper from "../components/Music/MusicWrapper";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Intro } from "../components/Intro/";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Head from "next/head";
+import { ease } from "../constants/data";
 
 function MyApp({ Component, pageProps }) {
   const [loaded, setLoaded] = useState(false);
@@ -56,7 +57,15 @@ function MyApp({ Component, pageProps }) {
 
       <AnimatePresence>
         {loaded ? (
-          <Component {...pageProps} key='main' />
+          <motion.div
+            key='main'
+            className='fixed top-0 right-0 bottom-0 left-0 bg-gradient-to-br from-astro-blue via-astro-pink to-astro-red'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: ease }}
+          >
+            <Component {...pageProps} />
+          </motion.div>
         ) : (
           <Intro setLoaded={setLoaded} key='intro' />
         )}

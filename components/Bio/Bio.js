@@ -9,12 +9,14 @@ import {
   emojiSad,
   socialMediaData,
   whileTapScale,
+  ease,
 } from "../../constants/data";
 import { useEffect, useState } from "react";
 import { setCursor } from "../Cursor/reducer";
 
 const Bio = () => {
   const [socialMedia, setSocialMedia] = useState([]);
+  const [hover, setHover] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,32 +30,38 @@ const Bio = () => {
       initial={{ opacity: 0, y: "-150%", x: "-50%" }}
       animate={{ opacity: 1, y: "-50%", x: "-50%" }}
       exit={{ opacity: 0, scale: 0 }}
+      transition={ease}
       className='fixed top-1/2 left-1/2 w-3/4 md:w-[750px] bg-white px-6 pt-5 pb-10 rounded-md z-30 transform -translate-x-1/2 -translate-y-1/2'
     >
       <div className='p-3 relative flex items-center justify-end'>
-        <motion.span
+        <motion.div
+          initial={{ rotate: 0 }}
+          animate={{ rotate: hover ? 90 : 0 }}
+          transition={{ duration: 0.2, ease }}
           onClick={() => dispatch(closeBio())}
           whileTap={{ scale: whileTapScale }}
-          onMouseEnter={() =>
+          onMouseEnter={() => {
+            setHover(true);
             dispatch(
               setCursor({
                 cursorContent: emojiHappy,
                 cursorVariant: "smile",
               })
-            )
-          }
-          onMouseLeave={() =>
+            );
+          }}
+          onMouseLeave={() => {
+            setHover(false);
             dispatch(
               setCursor({
                 cursorContent: emojiSad,
                 cursorVariant: "default",
               })
-            )
-          }
-          className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center z-40 relative'
+            );
+          }}
+          className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center z-40 relative pointer-events-auto'
         >
           <CloseIcon />
-        </motion.span>
+        </motion.div>
       </div>
       <div className='flex flex-col md:flex-row'>
         <p className='w-full md:w-2/3'>

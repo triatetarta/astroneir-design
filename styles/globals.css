@@ -35,9 +35,9 @@
     border-radius: 10px;
   }
 
-  /* body {
-    @apply font-supreme font-normal bg-gradient-to-br from-astro-blue via-astro-pink to-astro-red overflow-hidden;
-  } */
+  body {
+    @apply font-supreme font-normal overflow-hidden;
+  }
 
   canvas {
     @apply w-full h-full fixed top-0 left-0 right-0 bottom-0 block;

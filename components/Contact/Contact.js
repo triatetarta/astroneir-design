@@ -7,6 +7,7 @@ import {
   emojiSad,
   socialMediaData,
   whileTapScale,
+  ease,
 } from "../../constants/data";
 import { closeContact } from "./reducer";
 import Image from "next/image";
@@ -16,6 +17,7 @@ const Contact = () => {
   const [socialMedia, setSocialMedia] = useState([]);
   const [text, setText] = useState("");
   const [copied, setCopied] = useState(false);
+  const [hover, setHover] = useState(false);
   const dispatch = useDispatch();
 
   const clickHandler = async (e) => {
@@ -43,28 +45,34 @@ const Contact = () => {
       initial={{ opacity: 0, y: "-150%", x: "-50%" }}
       animate={{ opacity: 1, y: "-90%", x: "-50%" }}
       exit={{ opacity: 0, scale: 0 }}
+      transition={{ ease }}
       className='fixed top-1/2 left-1/2 w-[350px] md:w-[400px] bg-white px-6 pt-5 pb-10 rounded-md z-30'
     >
       <div className='p-3 relative flex items-center justify-end'>
         <motion.span
+          initial={{ rotate: 0 }}
+          animate={{ rotate: hover ? 90 : 0 }}
+          transition={{ duration: 0.2, ease }}
           whileTap={{ scale: whileTapScale }}
           onClick={() => dispatch(closeContact())}
-          onMouseEnter={() =>
+          onMouseEnter={() => {
+            setHover(true);
             dispatch(
               setCursor({
                 cursorContent: emojiHappy,
                 cursorVariant: "smile",
               })
-            )
-          }
-          onMouseLeave={() =>
+            );
+          }}
+          onMouseLeave={() => {
+            setHover(false);
             dispatch(
               setCursor({
                 cursorContent: emojiSad,
                 cursorVariant: "default",
               })
-            )
-          }
+            );
+          }}
           className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center z-40 relative'
         >
           <CloseIcon />
