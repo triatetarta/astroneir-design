@@ -43,7 +43,7 @@ const Contact = () => {
       initial={{ opacity: 0, y: "-150%", x: "-50%" }}
       animate={{ opacity: 1, y: "-90%", x: "-50%" }}
       exit={{ opacity: 0, scale: 0 }}
-      className='fixed top-1/2 left-1/2 w-[350px] md:w-[400px] bg-white px-6 pt-5 pb-10 rounded-md z-40'
+      className='fixed top-1/2 left-1/2 w-[350px] md:w-[400px] bg-white px-6 pt-5 pb-10 rounded-md z-30'
     >
       <div className='p-3 relative flex items-center justify-end'>
         <motion.span
@@ -65,7 +65,7 @@ const Contact = () => {
               })
             )
           }
-          className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center'
+          className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center z-40 relative'
         >
           <CloseIcon />
         </motion.span>
