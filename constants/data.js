@@ -10,9 +10,8 @@ export const transition = {
   damping: 30,
 };
 
-// ease: [0.6, 0.01, -0.05, 0.95],
-
-export const ease = [0.6, 0.05, -0.01, 0.9];
+// export const ease = [0.6, 0.05, -0.01, 0.9];
+export const ease = [0.6, 0.01, -0.05, 0.95];
 // export const ease = [0.43, 0.13, 0.23, 0.96];
 
 export const whileTapScale = 0.9;

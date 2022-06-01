@@ -15,8 +15,12 @@ import {
 } from "../../constants/data";
 import { openBio } from "../Bio/reducer";
 import { openContact } from "../Contact/reducer";
+import ArrowRight from "../../public/assets/arrow.svg";
+import { useMediaQuery } from "react-responsive";
 
 const Showcase = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const [stickers, setStickers] = useState(undefined);
   const [title, setTitle] = useState("Bio");
   const [hovered, setHovered] = useState(false);
@@ -69,6 +73,23 @@ const Showcase = () => {
     setSocialMedia(socialMediaData);
   }, []);
 
+  useEffect(() => {
+    if (isMobile && stickerIndex === null) {
+      setStickerIndex(0);
+    }
+  }, [isMobile, stickerIndex]);
+
+  useEffect(() => {
+    if (stickers === undefined) return;
+    const lastIndex = stickers.length - 1;
+    if (stickerIndex < 0) {
+      setStickerIndex(lastIndex);
+    }
+    if (stickerIndex > lastIndex) {
+      setStickerIndex(0);
+    }
+  }, [stickers, stickerIndex]);
+
   const handleMouseEnter = (e, index, sticker) => {
     dispatch(setCursor({ cursorContent: emojiHappy, cursorVariant: "smile" }));
     setStickerIndex(index);
@@ -88,16 +109,16 @@ const Showcase = () => {
 
   const getStyles = (stckr) => {
     if (stckr === "Bio") {
-      return "self-center w-[300px] h-[400px]";
+      return "self-center md:w-[300px] md:h-[400px] w-full h-2/3";
     }
     if (stckr === "Works") {
-      return "self-end w-[300px] h-[400px]";
+      return "self-center md:self-end md:w-[300px] md:h-[400px] w-full h-2/3";
     }
     if (stckr === "Music") {
-      return "self-start w-[300px] h-[400px]";
+      return "self-center md:self-start md:w-[300px] md:h-[400px] w-full h-2/3";
     }
     if (stckr === "Contact") {
-      return "self-end w-[300px] h-[400px]";
+      return "self-center md:self-end md:w-[300px] md:h-[400px] w-full h-2/3";
     }
   };
 
@@ -121,34 +142,73 @@ const Showcase = () => {
       onMouseMove={handleMouseEye}
       className='flex flex-col relative h-[calc(100vh-8.5rem)] overflow-y-hidden'
     >
-      <div className='w-full h-full relative flex flex-row items-center justify-center'>
-        {stickers?.map((sticker, index) => {
-          const { id, image, priority, title } = sticker;
+      <div className='w-full h-full relative flex md:flex-row md:items-center md:justify-center flex-col items-center justify-between'>
+        <div className='h-3/4 md:h-full w-full md:flex md:flex-row md:items-center md:justify-center relative'>
+          {stickers?.map((sticker, index) => {
+            const { id, image, priority, title } = sticker;
 
-          return (
-            <motion.div
-              whileTap={{ scale: whileTapScale }}
-              onMouseEnter={(e) => handleMouseEnter(e, index, sticker)}
-              onMouseLeave={handleMouseLeave}
-              onMouseMove={handleMouse}
-              key={id}
-              className={`${getStyles(title)} flex-1 relative`}
-              style={{
-                rotateX: stickerIndex === index && rotateX,
-                rotateY: stickerIndex === index && rotateY,
-              }}
-            >
-              <Image
-                onClick={() => onClickHandler(title)}
-                priority={priority}
-                src={image.src}
-                objectFit='contain'
-                layout='fill'
-                quality={100}
-              />
-            </motion.div>
-          );
-        })}
+            let opacity = 0;
+            let zIndex = 0;
+
+            if (stickerIndex === index) {
+              (opacity = 1), (zIndex = 1);
+            }
+
+            if (
+              stickerIndex === index - 1 ||
+              (index === 0 && stickerIndex === stickers.length - 1)
+            ) {
+              (opacity = 0), (zIndex = 0);
+            }
+
+            return (
+              <motion.div
+                whileTap={{ scale: whileTapScale }}
+                onMouseEnter={(e) => handleMouseEnter(e, index, sticker)}
+                onMouseLeave={handleMouseLeave}
+                onMouseMove={handleMouse}
+                key={id}
+                initial={{ opacity: isMobile ? opacity : 1, zIndex }}
+                animate={{ opacity: isMobile ? opacity : 1, zIndex }}
+                className={`md:flex-1 md:relative absolute top-[25%] md:top-0  md:left-0 md:transform-none ${getStyles(
+                  title
+                )}`}
+                style={{
+                  rotateX: stickerIndex === index && rotateX,
+                  rotateY: stickerIndex === index && rotateY,
+                }}
+              >
+                <Image
+                  onClick={() => onClickHandler(title)}
+                  priority={priority}
+                  src={image.src}
+                  objectFit='contain'
+                  layout='fill'
+                  quality={100}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <div className='md:hidden flex items-center justify-center space-x-4 flex-1'>
+          <motion.div
+            initial={{ rotate: -90 }}
+            whileTap={{ scale: whileTapScale }}
+            onClick={() => setStickerIndex(stickerIndex + 1)}
+            className='-rotate-90 w-10 h-10'
+          >
+            <ArrowRight />
+          </motion.div>
+          <motion.div
+            initial={{ rotate: 90 }}
+            whileTap={{ scale: whileTapScale }}
+            onClick={() => setStickerIndex(stickerIndex - 1)}
+            className='rotate-90 w-10 h-10'
+          >
+            <ArrowRight />
+          </motion.div>
+        </div>
       </div>
       <div className='flex items-center justify-between w-full'>
         <SpinningEmoji eyeRef={eyeRef} />

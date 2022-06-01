@@ -32,7 +32,7 @@ const VideoPlayer = ({ src }) => {
   };
 
   return (
-    <div
+    <motion.div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onClick={() => {
@@ -46,11 +46,13 @@ const VideoPlayer = ({ src }) => {
       <AnimatePresence>
         {!isPlaying && (
           <motion.div
-            onClick={() => setIsPlaying(true)}
+            onClick={() => {
+              setIsPlaying(true);
+            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='h-5 w-5 md:h-10 md:w-10 absolute top-1/2 left-1/2 z-40 transform -translate-x-1/2 -translate-y-1/2'
+            className='h-10 w-10 md:h-12 md:w-12 absolute top-1/2 left-1/2 z-40 transform -translate-x-1/2 -translate-y-1/2'
           >
             <img
               className='w-full h-full'
@@ -68,7 +70,7 @@ const VideoPlayer = ({ src }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='h-5 w-5 md:h-10 md:w-10 absolute top-1/2 left-1/2 z-40 transform -translate-x-1/2 -translate-y-1/2 hidden md:flex'
+            className='h-10 w-10 md:h-12 md:w-12 absolute top-1/2 left-1/2 z-40 transform -translate-x-1/2 -translate-y-1/2 hidden md:flex'
           >
             <img
               className='w-full h-full'
@@ -85,9 +87,11 @@ const VideoPlayer = ({ src }) => {
         className='object-contain absolute left-0 right-0 bottom-0 top-0'
         url={src}
         playing={isPlaying}
-        onEnded={() => setIsPlaying(false)}
+        onEnded={() => {
+          setIsPlaying(false);
+        }}
       />
-    </div>
+    </motion.div>
   );
 };
 

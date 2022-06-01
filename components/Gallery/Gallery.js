@@ -64,7 +64,8 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
           <CloseIcon className='w-full h-full' />
         </motion.div>
         <div className='relative h-full w-full mx-auto '>
-          <div
+          <motion.div
+            whileTap={{ scale: whileTapScale }}
             onMouseEnter={() =>
               dispatch(
                 setCursor({
@@ -85,9 +86,10 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
             onClick={() => setIndex(index - 1)}
           >
             <ArrowLeft />
-          </div>
+          </motion.div>
 
-          <div
+          <motion.div
+            whileTap={{ scale: whileTapScale }}
             onMouseEnter={() =>
               dispatch(
                 setCursor({
@@ -108,7 +110,7 @@ const Gallery = ({ images, selImageIndex, setOpenGallery }) => {
             onClick={() => setIndex(index + 1)}
           >
             <ArrowRight />
-          </div>
+          </motion.div>
 
           {images?.map((image, imageIndex) => {
             let positionX = "200%";
