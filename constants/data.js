@@ -10,6 +10,8 @@ export const transition = {
   damping: 30,
 };
 
+// ease: [0.6, 0.01, -0.05, 0.95],
+
 export const ease = [0.6, 0.05, -0.01, 0.9];
 // export const ease = [0.43, 0.13, 0.23, 0.96];
 
@@ -103,21 +105,6 @@ export const worksData = [
     id: uuidv4(),
     title: "Branding",
     images: [
-      {
-        id: uuidv4(),
-        project: "detsaridis",
-        src: "/assets/works/branding/detsaridis-logos.jpg",
-      },
-      {
-        id: uuidv4(),
-        project: "detsaridis",
-        src: "/assets/works/branding/detsaridis-flag.jpg",
-      },
-      {
-        id: uuidv4(),
-        project: "detsaridis",
-        src: "/assets/works/branding/detsaridis-track.jpg",
-      },
       {
         id: uuidv4(),
         project: "camelot",

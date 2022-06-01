@@ -155,7 +155,7 @@ const Showcase = () => {
         <Title title={title} hovered={hovered} />
         <div></div>
         <div className='h-full flex flex-col-reverse lg:flex-row  lg:items-center lg:space-x-4 justify-center items-end'>
-          <div className='flex space-x-2 lg:mb-3'>
+          <div className='flex space-x-2 lg:mt-4'>
             {socialMedia?.map((media) => {
               return (
                 <motion.a
