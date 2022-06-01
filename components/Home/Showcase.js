@@ -214,7 +214,7 @@ const Showcase = () => {
         <SpinningEmoji eyeRef={eyeRef} />
         <Title title={title} hovered={hovered} />
         <div></div>
-        <div className='h-full flex flex-col-reverse lg:flex-row  lg:items-center lg:space-x-4 justify-center items-end'>
+        <div className='h-full flex flex-col lg:flex-row  lg:items-center lg:space-x-4 justify-center items-end'>
           <div className='flex space-x-2 lg:mt-4'>
             {socialMedia?.map((media) => {
               return (
@@ -251,13 +251,6 @@ const Showcase = () => {
                 </motion.a>
               );
             })}
-          </div>
-          <div className='mb-2 lg:mb-0'>
-            <p className='text-white text-right text-sm md:text-base'>
-              The world is indeed comic,
-              <br />
-              but the joke is on mankind.
-            </p>
           </div>
         </div>
       </div>

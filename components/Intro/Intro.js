@@ -3,13 +3,16 @@ import { useState } from "react";
 import useInterval from "@use-it/interval";
 import Image from "next/image";
 import { ease } from "../../constants/data";
+import { useDispatch } from "react-redux";
+import { setIsLoaded } from "./reducer";
 
-const Intro = ({ setLoaded }) => {
+const Intro = () => {
   const [counter, setCounter] = useState(0);
   const [startCount, setStartCount] = useState(true);
   const bgRedAnimation = useAnimation();
   const bgBlueAnimation = useAnimation();
-  const stGeorgeAnimation = useAnimation();
+
+  const dispatch = useDispatch();
 
   const sequence = async () => {
     await bgRedAnimation.start({
@@ -29,14 +32,7 @@ const Intro = ({ setLoaded }) => {
       },
     });
 
-    await stGeorgeAnimation.start({
-      opacity: 0,
-      transition: {
-        duration: 1,
-        ease: ease,
-      },
-    });
-    setLoaded(true);
+    dispatch(setIsLoaded(true));
   };
 
   useInterval(() => {
@@ -58,10 +54,10 @@ const Intro = ({ setLoaded }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: ease }}
+      initial={{ opacity: 1, y: "0%" }}
+      animate={{ opacity: 1, y: "0%" }}
+      exit={{ opacity: 0, y: "-100%" }}
+      transition={{ duration: 1.2, ease: ease }}
       className='fixed top-0 left-0 right-0 bottom-0'
     >
       <motion.div
@@ -74,10 +70,7 @@ const Intro = ({ setLoaded }) => {
         animate={bgRedAnimation}
         className='z-50 fixed top-0 left-0 right-0 bottom-0 bg-astro-red'
       />
-      <motion.div
-        animate={stGeorgeAnimation}
-        className='z-40 absolute top-0 left-0 right-0 bottom-0 bg-astro-pink flex flex-col items-center justify-center'
-      >
+      <div className='z-40 absolute top-0 left-0 right-0 bottom-0 bg-astro-pink flex flex-col items-center justify-center'>
         <div className='w-[400px] h-[300px] md:w-[600px] md:h-[600px] relative overflow-hidden'>
           <Image
             src='/assets/intro.png'
@@ -102,7 +95,7 @@ const Intro = ({ setLoaded }) => {
             </h2>
           )}
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

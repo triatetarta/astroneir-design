@@ -1,8 +1,24 @@
 import Showcase from "../components/Home/Showcase";
 import { Layout } from "../components/Layout";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { Intro } from "../components/Intro";
+import { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsLoaded } from "../components/Intro/reducer";
 
 export default function Home() {
+  const { isLoaded } = useSelector((state) => state.intro);
+
+  const dispatch = useDispatch();
+
+  const { pathname } = useRouter();
+
+  useEffect(() => {
+    if (pathname !== "/") dispatch(setIsLoaded(true));
+  }, [pathname]);
+
   return (
     <>
       <Head>
@@ -16,7 +32,9 @@ export default function Home() {
 
       <div className='w-full h-full relative'>
         <Layout>
-          <Showcase />
+          <AnimatePresence exitBeforeEnter>
+            {!isLoaded ? <Intro key='intro' /> : <Showcase key='showcase' />}
+          </AnimatePresence>
         </Layout>
       </div>
     </>

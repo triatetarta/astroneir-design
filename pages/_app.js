@@ -4,22 +4,9 @@ import { Provider } from "react-redux";
 import { store } from "../configureStore";
 import { Cursor } from "../components/Cursor";
 import MusicWrapper from "../components/Music/MusicWrapper";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { Intro } from "../components/Intro/";
-import { AnimatePresence, motion } from "framer-motion";
 import Head from "next/head";
-import { ease } from "../constants/data";
 
 function MyApp({ Component, pageProps }) {
-  const [loaded, setLoaded] = useState(false);
-
-  const { pathname } = useRouter();
-
-  useEffect(() => {
-    if (pathname !== "/") setLoaded(true);
-  }, [pathname]);
-
   return (
     <Provider store={store}>
       <Head>
@@ -55,21 +42,7 @@ function MyApp({ Component, pageProps }) {
       <Cursor />
       <MusicWrapper />
 
-      <AnimatePresence>
-        {loaded ? (
-          <motion.div
-            key='main'
-            className='fixed top-0 right-0 bottom-0 left-0 bg-gradient-to-br from-astro-blue via-astro-pink to-astro-red'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, ease: ease }}
-          >
-            <Component {...pageProps} />
-          </motion.div>
-        ) : (
-          <Intro setLoaded={setLoaded} key='intro' />
-        )}
-      </AnimatePresence>
+      <Component {...pageProps} />
     </Provider>
   );
 }
