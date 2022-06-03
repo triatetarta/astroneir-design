@@ -60,7 +60,7 @@ const Bio = () => {
           }}
           className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center z-40 relative pointer-events-auto'
         >
-          <CloseIcon />
+          <CloseIcon className='md:w-8 md:h-8 w-5 h-5' />
         </motion.div>
       </div>
       <div className='flex flex-col md:flex-row'>

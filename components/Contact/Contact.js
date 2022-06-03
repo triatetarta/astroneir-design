@@ -75,7 +75,7 @@ const Contact = () => {
           }}
           className='md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center z-40 relative'
         >
-          <CloseIcon />
+          <CloseIcon className='md:w-8 md:h-8 w-5 h-5' />
         </motion.span>
       </div>
 
