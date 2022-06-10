@@ -258,6 +258,11 @@ export const worksData = [
       },
       {
         id: uuidv4(),
+        project: "carnal",
+        src: "/assets/works/music-posters/carnal2.jpg",
+      },
+      {
+        id: uuidv4(),
         project: "keep shelly in athens",
         src: "/assets/works/music-posters/keepshelly.webp",
       },
@@ -285,6 +290,52 @@ export const worksData = [
         id: uuidv4(),
         project: "Parra For Cuva",
         src: "/assets/works/music-posters/parra-for-cuva.png",
+      },
+      {
+        id: uuidv4(),
+        project: "crust",
+        src: "/assets/works/music-posters/Crust.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "crust",
+        src: "/assets/works/music-posters/Crust2.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "the boy",
+        src: "/assets/works/music-posters/theboy.jpg",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    title: "Album Covers",
+    images: [
+      {
+        id: uuidv4(),
+        project: "elect 07",
+        src: "/assets/works/album-covers/elect-07.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "jholie",
+        src: "/assets/works/album-covers/Jholie.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "jholie",
+        src: "/assets/works/album-covers/Jholie2.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "melorman",
+        src: "/assets/works/album-covers/Melorman.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "technoworks",
+        src: "/assets/works/album-covers/Technoworks.jpg",
       },
     ],
   },
@@ -351,6 +402,21 @@ export const worksData = [
         id: uuidv4(),
         project: "the man from earth",
         src: "/assets/works/movie-posters/the-man-from-earth.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "fargo",
+        src: "/assets/works/movie-posters/fargo.png",
+      },
+      {
+        id: uuidv4(),
+        project: "the distance between us and the sky",
+        src: "/assets/works/movie-posters/thedistancebetween.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "the x files",
+        src: "/assets/works/movie-posters/thexfiles.png",
       },
     ],
   },
@@ -508,6 +574,17 @@ export const worksData = [
   },
   {
     id: uuidv4(),
+    title: "Collage Art",
+    images: [
+      {
+        id: uuidv4(),
+        project: "field",
+        src: "/assets/works/collage-art/field.jpg",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
     title: "Posters",
     images: [
       {
@@ -524,6 +601,21 @@ export const worksData = [
         id: uuidv4(),
         project: "Hilton",
         src: "/assets/works/posters/hilton-01.png",
+      },
+      {
+        id: uuidv4(),
+        project: "general",
+        src: "/assets/works/posters/general.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "general",
+        src: "/assets/works/posters/general2.jpg",
+      },
+      {
+        id: uuidv4(),
+        project: "general",
+        src: "/assets/works/posters/general3.gif",
       },
     ],
   },
