@@ -341,6 +341,62 @@ export const worksData = [
   },
   {
     id: uuidv4(),
+    title: "Book Covers",
+    images: [
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/1.png",
+      },
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/2.png",
+      },
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/3.png",
+      },
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/4.png",
+      },
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/5.png",
+      },
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/6.png",
+      },
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/7.png",
+      },
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/8.png",
+      },
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/9.png",
+      },
+      {
+        id: uuidv4(),
+        project: "20.000 Leagues Under The Sea",
+        src: "/assets/works/book-covers/10.png",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
     title: "Movie Posters",
     images: [
       {
